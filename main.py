@@ -6,8 +6,6 @@ import tkinter
 from tkinter.filedialog import askopenfilename
 from pydub import AudioSegment
 
-
-
 temp_files = glob.glob("temp-samples/*")
 for f in temp_files:
     os.remove(f)
@@ -274,7 +272,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         4:
             {"sample": None,
@@ -296,7 +294,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         5:
             {"sample": None,
@@ -318,7 +316,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         6:
             {"sample": None,
@@ -340,7 +338,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         7:
             {"sample": None,
@@ -362,7 +360,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         8:
             {"sample": None,
@@ -384,7 +382,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         "window": False,
         "mode": "instrument"
@@ -410,7 +408,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         2:
             {"sample": None,
@@ -432,7 +430,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         3:
             {"sample": None,
@@ -454,7 +452,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         4:
             {"sample": None,
@@ -476,7 +474,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         5:
             {"sample": None,
@@ -498,7 +496,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         6:
             {"sample": None,
@@ -520,7 +518,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         7:
             {"sample": None,
@@ -542,7 +540,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         8:
             {"sample": None,
@@ -564,7 +562,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         "window": False,
         "mode": "instrument"
@@ -590,7 +588,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         2:
             {"sample": None,
@@ -612,7 +610,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         3:
             {"sample": None,
@@ -634,7 +632,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         4:
             {"sample": None,
@@ -656,7 +654,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         5:
             {"sample": None,
@@ -678,7 +676,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         6:
             {"sample": None,
@@ -700,7 +698,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         7:
             {"sample": None,
@@ -722,7 +720,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         8:
             {"sample": None,
@@ -744,7 +742,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         "window": False,
         "mode": "drum"
@@ -770,7 +768,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         2:
             {"sample": None,
@@ -792,7 +790,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         3:
             {"sample": None,
@@ -814,7 +812,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         4:
             {"sample": None,
@@ -836,7 +834,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         5:
             {"sample": None,
@@ -858,7 +856,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         6:
             {"sample": None,
@@ -880,7 +878,7 @@ samples = {
                        57: [False, False], 58: [False, False], 59: [False, False], 60: [False, False],
                        61: [False, False], 62: [False, False], 63: [False, False], 64: [False, False]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         7:
             {"sample": None,
@@ -902,7 +900,7 @@ samples = {
                        57: [False, False], 58: [False, False], 59: [False, False], 60: [False, False],
                        61: [False, False], 62: [False, False], 63: [False, False], 64: [False, False]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         8:
             {"sample": None,
@@ -924,7 +922,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         "window": False,
         "mode": "drum"
@@ -950,7 +948,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         2:
             {"sample": None,
@@ -972,7 +970,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         3:
             {"sample": None,
@@ -994,7 +992,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         4:
             {"sample": None,
@@ -1016,7 +1014,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         5:
             {"sample": None,
@@ -1038,7 +1036,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         6:
             {"sample": None,
@@ -1060,7 +1058,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         7:
             {"sample": None,
@@ -1082,7 +1080,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         8:
             {"sample": None,
@@ -1104,7 +1102,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         "window": False,
         "mode": "drum"
@@ -1130,7 +1128,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         2:
             {"sample": None,
@@ -1152,7 +1150,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         3:
             {"sample": None,
@@ -1174,7 +1172,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         4:
             {"sample": None,
@@ -1196,7 +1194,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         5:
             {"sample": None,
@@ -1218,7 +1216,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         6:
             {"sample": None,
@@ -1240,7 +1238,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         7:
             {"sample": None,
@@ -1262,7 +1260,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         8:
             {"sample": None,
@@ -1284,7 +1282,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         "window": False,
         "mode": "drum"
@@ -1310,7 +1308,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         2:
             {"sample": None,
@@ -1332,7 +1330,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         3:
             {"sample": None,
@@ -1354,7 +1352,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         4:
             {"sample": None,
@@ -1376,7 +1374,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         5:
             {"sample": None,
@@ -1398,7 +1396,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         6:
             {"sample": None,
@@ -1420,7 +1418,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         7:
             {"sample": None,
@@ -1442,7 +1440,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         8:
             {"sample": None,
@@ -1464,7 +1462,7 @@ samples = {
                        57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
                        61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
                        },
-             "volume": 1.0,
+             "volume": 0.5,
              "pitch": 0},
         "window": False,
         "mode": "drum"
