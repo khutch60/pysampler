@@ -1500,6 +1500,7 @@ measure_number = 1
 measure_total = 4
 
 start_button_press = False
+
 volume_adjust = True
 mouse_hold = False
 row_click = None
@@ -1508,8 +1509,9 @@ original_pad = None
 original_x = None
 pad_hover_x = None
 
-
 recording = False
+
+track_view = 1
 
 start_font = pg.font.SysFont('Arial', 20)
 start_text = start_font.render("Play", False, "#555555")
@@ -1541,7 +1543,10 @@ step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
 
 track_font = pg.font.SysFont('Arial', 30)
 track_text = track_font.render("Track:", False, "white")
-# track_numbers = [track_font.render(f'{number + 1}', False, "white") for number in range(8)]
+
+mode_font = pg.font.SysFont('Arial', 30)
+mode_text = mode_font.render(f"Mode: {samples[track_view]['mode'].title()}", False, "white")
+
 track_numbers = {
     1: track_font.render('1', False, "white"),
     2: track_font.render('2', False, "white"),
@@ -1553,7 +1558,7 @@ track_numbers = {
     8: track_font.render('8', False, "white"),
 }
 
-track_view = 1
+
 
 for track in range(8):
     if samples[track + 1]["window"]:
@@ -1627,7 +1632,7 @@ def play():
                         pass
                     if samples[tracks + 1][sample + 1]["steps"][step][0]:
                         try:
-                            samples[tracks + 1][sample + 1]["sample"].play(loops=-1)
+                            samples[tracks + 1][sample + 1]["sample"].play()
 
                         except AttributeError:
                             pass
@@ -1845,6 +1850,11 @@ while is_running:
                             track_numbers[track_view] = track_font.render(f'{track_view}', False, "#555555")
                             samples[track_view]["window"] = True
 
+                # Mode select
+                if mode_select.x < pg.mouse.get_pos()[0] < (mode_select.x + 80):
+                    if mode_select.y < pg.mouse.get_pos()[1] < (mode_select.y + 30):
+                        samples[track_view]["mode"] = "instrument"
+                        mode_text = mode_font.render(f"Mode: {samples[track_view]['mode'].title()}", False, "white")
             if event.type == pg.MOUSEBUTTONUP and event.button == 1:
                 if start_button_press:
                     if not audio_start:
@@ -2059,8 +2069,16 @@ while is_running:
             window_surface.blit(track_numbers[button + 1], (track_x + 6, 550))
             track_x += 33
         window_surface.blit(track_text, (500, 550))
+
+
+        mode_select = pg.draw.rect(surface=window_surface,
+                                                 color="white",
+                                                 rect=(497, 502, 80, 30),
+                                                 width=1)
+        window_surface.blit(mode_text, (500, 500))
+
         pg.display.flip()
-        # pygame_clock.tick(120)
+
     elif samples[track_view]["mode"] == "instrument":
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -2261,6 +2279,15 @@ while is_running:
                             track_view = button + 1
                             track_numbers[track_view] = track_font.render(f'{track_view}', False, "#555555")
                             samples[track_view]["window"] = True
+
+                # Mode select
+                if mode_select.x < pg.mouse.get_pos()[0] < (mode_select.x + 80):
+                    if mode_select.y < pg.mouse.get_pos()[1] < (mode_select.y + 30):
+                        samples[track_view]["mode"] = "drum"
+                        mode_text = mode_font.render(f"Mode: {samples[track_view]['mode'].title()}", False, "white")
+                        # for step in samples[track_view]:
+                        #     print(step)
+
 
             if event.type == pg.MOUSEBUTTONUP and event.button == 1:
                 for row in range(len(rows)):
@@ -2501,7 +2528,7 @@ while is_running:
 
         # Step count
         step_buttons = [pg.draw.rect(surface=window_surface,
-                                        color="black",
+                                        color="white",
                                         rect=(230, 550, 15, 15),
                                         width=0), pg.draw.rect(surface=window_surface,
                                                                color="white",
@@ -2526,6 +2553,13 @@ while is_running:
                                                  width=1))
             window_surface.blit(track_numbers[button + 1], (track_x + 6, 550))
             track_x += 33
+
+        mode_select = pg.draw.rect(surface=window_surface,
+                                   color="white",
+                                   rect=(497, 502, 80, 30),
+                                   width=1)
+        window_surface.blit(mode_text, (500, 500))
+
         window_surface.blit(track_text, (500, 550))
         pg.display.flip()
 
