@@ -26,1450 +26,27 @@ is_running = True
 
 
 # Sample playback tracking
-samples = {
-    1: {
-        1:
-            {"sample": pg.mixer.Sound("samples/synthwave-kick-punch_C_minor.wav"),
-             "path": "samples/synthwave-kick-punch_C_minor.wav",
-             "steps": {1: [True, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [True, False, 0], 8: [False, False, 0],
-                       9: [True, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [True, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [True, False, 0], 16: [False, False, 0],
-                       17: [True, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [True, False, 0], 24: [False, False, 0],
-                       25: [True, False, 0], 26: [False, False, 0], 27: [False, False, 0], 28: [True, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [True, False, 0], 32: [False, False, 0],
-                       33: [True, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [True, False, 0], 40: [False, False, 0],
-                       41: [True, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [True, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [True, False, 0], 48: [False, False, 0],
-                       49: [True, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [True, False, 0], 56: [False, False, 0],
-                       57: [True, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [True, False, 0],
-                       61: [True, False, 0], 62: [True, False, 0], 63: [True, False, 0], 64: [True, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        2:
-            {"sample": pg.mixer.Sound("samples/origin-snare.wav"),
-             "path": "samples/origin-snare.wav",
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [True, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [True, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [True, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False, 0], 28: [False, False, 0],
-                       29: [True, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [True, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [True, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [True, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [True, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        3:
-            {"sample": pg.mixer.Sound("samples/hat 1.wav"),
-             "path": "samples/hat 1.wav",
-             "steps": {1: [True, False, 0], 2: [False, False, 0], 3: [True, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False], 7: [True, False], 8: [False, False],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [True, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [True, False, 0], 16: [False, False, 0],
-                       17: [True, False, 0], 18: [False, False, 0], 19: [True, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [True, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [True, False, 0], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [True, False, 0], 32: [False, False, 0],
-                       33: [True, False, 0], 34: [False, False, 0], 35: [True, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [True, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [True, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [True, False, 0], 48: [False, False, 0],
-                       49: [True, False, 0], 50: [False, False, 0], 51: [True, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [True, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [True, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [True, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        4:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        5:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        6:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        7:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        8:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        "window": True,
-        "mode": "drum"
-        },
-    2: {
-        1:
-            {"sample": pg.mixer.Sound("samples/analog-synth-bass-poison_C_major.wav"),
-             "path": "samples/analog-synth-bass-poison_C_major.wav",
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        2:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        3:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        4:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        5:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        6:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        7:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        8:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        "window": False,
-        "mode": "instrument"
-        },
-    3: {
-        1:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        2:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        3:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        4:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        5:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        6:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        7:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        8:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        "window": False,
-        "mode": "instrument"
-        },
-    4: {
-        1:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        2:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        3:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        4:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        5:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        6:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        7:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        8:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        "window": False,
-        "mode": "drum"
-        },
-    5: {
-        1:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        2:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        3:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        4:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        5:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        6:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False], 2: [False, False], 3: [False, False], 4: [False, False],
-                       5: [False, False], 6: [False, False], 7: [False, False], 8: [False, False],
-                       9: [False, False], 10: [False, False], 11: [False, False], 12: [False, False],
-                       13: [False, False], 14: [False, False], 15: [False, False], 16: [False, False],
-                       17: [False, False], 18: [False, False], 19: [False, False], 20: [False, False],
-                       21: [False, False], 22: [False, False], 23: [False, False], 24: [False, False],
-                       25: [False, False], 26: [False, False], 27: [False, False], 28: [False, False],
-                       29: [False, False], 30: [False, False], 31: [False, False], 32: [False, False],
-                       33: [False, False], 34: [False, False], 35: [False, False], 36: [False, False],
-                       37: [False, False], 38: [False, False], 39: [False, False], 40: [False, False],
-                       41: [False, False], 42: [False, False], 43: [False, False], 44: [False, False],
-                       45: [False, False], 46: [False, False], 47: [False, False], 48: [False, False],
-                       49: [False, False], 50: [False, False], 51: [False, False], 52: [False, False],
-                       53: [False, False], 54: [False, False], 55: [False, False], 56: [False, False],
-                       57: [False, False], 58: [False, False], 59: [False, False], 60: [False, False],
-                       61: [False, False], 62: [False, False], 63: [False, False], 64: [False, False]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        7:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False], 2: [False, False], 3: [False, False], 4: [False, False],
-                       5: [False, False], 6: [False, False], 7: [False, False], 8: [False, False],
-                       9: [False, False], 10: [False, False], 11: [False, False], 12: [False, False],
-                       13: [False, False], 14: [False, False], 15: [False, False], 16: [False, False],
-                       17: [False, False], 18: [False, False], 19: [False, False], 20: [False, False],
-                       21: [False, False], 22: [False, False], 23: [False, False], 24: [False, False],
-                       25: [False, False], 26: [False, False], 27: [False, False], 28: [False, False],
-                       29: [False, False], 30: [False, False], 31: [False, False], 32: [False, False],
-                       33: [False, False], 34: [False, False], 35: [False, False], 36: [False, False],
-                       37: [False, False], 38: [False, False], 39: [False, False], 40: [False, False],
-                       41: [False, False], 42: [False, False], 43: [False, False], 44: [False, False],
-                       45: [False, False], 46: [False, False], 47: [False, False], 48: [False, False],
-                       49: [False, False], 50: [False, False], 51: [False, False], 52: [False, False],
-                       53: [False, False], 54: [False, False], 55: [False, False], 56: [False, False],
-                       57: [False, False], 58: [False, False], 59: [False, False], 60: [False, False],
-                       61: [False, False], 62: [False, False], 63: [False, False], 64: [False, False]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        8:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        "window": False,
-        "mode": "drum"
-        },
-    6: {
-        1:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        2:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        3:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        4:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        5:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        6:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        7:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        8:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        "window": False,
-        "mode": "drum"
-        },
-    7: {
-        1:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        2:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        3:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        4:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        5:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        6:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        7:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        8:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        "window": False,
-        "mode": "drum"
-        },
-    8: {
-        1:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        2:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        3:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        4:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        5:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        6:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        7:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        8:
-            {"sample": None,
-             "path": None,
-             "steps": {1: [False, False, 0], 2: [False, False, 0], 3: [False, False, 0], 4: [False, False, 0],
-                       5: [False, False, 0], 6: [False, False, 0], 7: [False, False, 0], 8: [False, False, 0],
-                       9: [False, False, 0], 10: [False, False, 0], 11: [False, False, 0], 12: [False, False, 0],
-                       13: [False, False, 0], 14: [False, False, 0], 15: [False, False, 0], 16: [False, False, 0],
-                       17: [False, False, 0], 18: [False, False, 0], 19: [False, False, 0], 20: [False, False, 0],
-                       21: [False, False, 0], 22: [False, False, 0], 23: [False, False, 0], 24: [False, False, 0],
-                       25: [False, False, 0], 26: [False, False, 0], 27: [False, False], 28: [False, False, 0],
-                       29: [False, False, 0], 30: [False, False, 0], 31: [False, False, 0], 32: [False, False, 0],
-                       33: [False, False, 0], 34: [False, False, 0], 35: [False, False, 0], 36: [False, False, 0],
-                       37: [False, False, 0], 38: [False, False, 0], 39: [False, False, 0], 40: [False, False, 0],
-                       41: [False, False, 0], 42: [False, False, 0], 43: [False, False, 0], 44: [False, False, 0],
-                       45: [False, False, 0], 46: [False, False, 0], 47: [False, False, 0], 48: [False, False, 0],
-                       49: [False, False, 0], 50: [False, False, 0], 51: [False, False, 0], 52: [False, False, 0],
-                       53: [False, False, 0], 54: [False, False, 0], 55: [False, False, 0], 56: [False, False, 0],
-                       57: [False, False, 0], 58: [False, False, 0], 59: [False, False, 0], 60: [False, False, 0],
-                       61: [False, False, 0], 62: [False, False, 0], 63: [False, False, 0], 64: [False, False, 0]
-                       },
-             "volume": 0.5,
-             "pitch": 0},
-        "window": False,
-        "mode": "drum"
-        },
+samples = {}
 
-    }
+for x in range(8):
+    samples[x] = [[{"sample": None,
+        "path": None,
+        "steps": [[False, False, 0] for x in range(64)],
+        "volume": 0.5,
+        "pitch": 0} for y in range(8)],
+         {"window": False, "mode": "drum"}]
 
+
+samples[0][1]["window"] = True
+
+samples[0][0][0]["sample"] = pg.mixer.Sound("samples/synthwave-kick-punch_C_minor.wav")
+samples[0][0][0]["path"] = "samples/synthwave-kick-punch_C_minor.wav"
+samples[0][0][0]["pitch"] = -2
+samples[0][0][0]["steps"][3][0] = True
+
+samples[0][0][1]["sample"] = pg.mixer.Sound("samples/origin-snare.wav")
+samples[0][0][1]["path"] = "samples/origin-snare.wav"
+samples[0][0][1]["pitch"] = -2
 
 pg.mixer.set_num_channels(30)
 
@@ -1511,7 +88,7 @@ pad_hover_x = None
 
 recording = False
 
-track_view = 1
+track_view = 0
 
 start_font = pg.font.SysFont('Arial', 20)
 start_text = start_font.render("Play", False, "#555555")
@@ -1545,100 +122,85 @@ track_font = pg.font.SysFont('Arial', 30)
 track_text = track_font.render("Track:", False, "white")
 
 mode_font = pg.font.SysFont('Arial', 30)
-mode_text = mode_font.render(f"Mode: {samples[track_view]['mode'].title()}", False, "white")
+mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
 
-track_numbers = {
-    1: track_font.render('1', False, "white"),
-    2: track_font.render('2', False, "white"),
-    3: track_font.render('3', False, "white"),
-    4: track_font.render('4', False, "white"),
-    5: track_font.render('5', False, "white"),
-    6: track_font.render('6', False, "white"),
-    7: track_font.render('7', False, "white"),
-    8: track_font.render('8', False, "white"),
-}
+track_numbers = [track_font.render('1', False, "white"),
+                 track_font.render('2', False, "white"),
+                 track_font.render('3', False, "white"),
+                 track_font.render('4', False, "white"),
+                 track_font.render('5', False, "white"),
+                 track_font.render('6', False, "white"),
+                 track_font.render('7', False, "white"),
+                 track_font.render('8', False, "white")]
 
 
 
 for track in range(8):
-    if samples[track + 1]["window"]:
-        track_view = track + 1
-
-track_numbers[track_view] = track_font.render(f"{track_view}", False, "#555555")
+    if samples[track][1]["window"]:
+        track_view = track
+track_numbers[track_view] = track_font.render(f"{track_view + 1}", False, "#555555")
 
 for track in samples:
+
     for sample in range(8):
+
         try:
-            samples[track][sample + 1]["sample"].set_volume(samples[track][sample + 1]["volume"])
+            samples[track][0][sample]["sample"].set_volume(samples[track][0][sample]["volume"])
         except AttributeError:
             pass
-        if samples[track][sample + 1]["pitch"] > 0:
-            for x in range(samples[track][sample + 1]["pitch"]):
+        if samples[track][0][sample]["pitch"] > 0:
+            for x in range(samples[track][0][sample]["pitch"]):
                 try:
-                    path = f"temp-samples/track {track} row {sample + 1}.wav"
+                    path = f"temp-samples/track {track} row {sample}.wav"
                     audio = AudioSegment.from_file(path)
-
                 except FileNotFoundError:
-                    samples[track][sample + 1]["pitch"] += 1
-                    path = samples[track][sample + 1]["path"]
+                    path = samples[track][0][sample]["path"]
                     audio = AudioSegment.from_file(path)
                 slow_sound = speed_change(sound=audio, speed=note_half_step_up)
-                slow_sound.export(f"temp-samples/track {track} row {sample + 1}.wav", format="wav")
-                samples[track][sample + 1]["sample"] = pg.mixer.Sound(
-                    f"temp-samples/track {track} row {sample + 1}.wav")
-                samples[track][sample + 1]["sample"].set_volume(samples[track][sample + 1]["volume"])
-        elif samples[track][sample + 1]["pitch"] < 0:
-            for x in range(samples[track][sample + 1]["pitch"]):
+                slow_sound.export(f"temp-samples/track {track} row {sample}.wav", format="wav")
+                samples[track][0][sample]["sample"] = pg.mixer.Sound(f"temp-samples/track {track} row {sample}.wav")
+                samples[track][0][sample]["sample"].set_volume(samples[track][0][sample]["volume"])
+        elif samples[track][0][sample]["pitch"] < 0:
+            for x in range(samples[track][0][sample]["pitch"] * -1):
                 try:
-                    path = f"temp-samples/track {track} row {sample + 1}.wav"
+                    path = f"temp-samples/track {track} row {sample}.wav"
                     audio = AudioSegment.from_file(path)
 
                 except FileNotFoundError:
-                    samples[track][sample + 1]["pitch"] += 1
-                    path = samples[track][sample + 1]["path"]
+                    path = samples[track][0][sample]["path"]
                     audio = AudioSegment.from_file(path)
                 slow_sound = speed_change(sound=audio, speed=note_half_step_down)
-                slow_sound.export(f"temp-samples/track {track} row {sample + 1}.wav", format="wav")
-                samples[track][sample + 1]["sample"] = pg.mixer.Sound(
-                    f"temp-samples/track {track} row {sample + 1}.wav")
-                samples[track][sample + 1]["sample"].set_volume(samples[track][sample + 1]["volume"])
+                slow_sound.export(f"temp-samples/track {track} row {sample}.wav", format="wav")
+                samples[track][0][sample]["sample"] = pg.mixer.Sound(f"temp-samples/track {track} row {sample}.wav")
+                samples[track][0][sample]["sample"].set_volume(samples[track][0][sample]["volume"])
 
 
-def play():
-    global samples, clock, light_step, light_x_pos, step
-    if clock.step():
-        if light_step > 16:
-            light_step = 1
-            light_x_pos = 65
-        if step > step_total:
-            step = 1
-        for tracks in range(8):
-            if samples[tracks + 1]["mode"] == "drum":
-                for sample in range(8):
-                    if samples[tracks + 1][sample + 1]["steps"][step][0]:
-                        try:
-                            samples[tracks + 1][sample + 1]["sample"].stop()
-                            samples[tracks + 1][sample + 1]["sample"].play()
-                        except AttributeError:
-                            pass
-            elif samples[tracks + 1]["mode"] == "instrument":
-                for sample in range(8):
+def play(sample_dict, step_num):
+    for tracks in range(8):
+        if sample_dict[tracks][1]["mode"] == "drum":
+            for x in range(8):
+                if sample_dict[tracks][0][x]["steps"][step_num - 1][0]:
                     try:
-                        if samples[tracks + 1][sample + 1]["steps"][step][1]:
-                            pass
-                        else:
-                            samples[tracks + 1][sample + 1]["sample"].stop()
+                        sample_dict[tracks][0][x]["sample"].stop()
+                        sample_dict[tracks][0][x]["sample"].play()
                     except AttributeError:
                         pass
-                    if samples[tracks + 1][sample + 1]["steps"][step][0]:
-                        try:
-                            samples[tracks + 1][sample + 1]["sample"].play()
+        elif sample_dict[tracks][1]["mode"] == "instrument":
+            for x in range(8):
+                try:
+                    if sample_dict[tracks][0][x]["steps"][step_num - 1][1]:
+                        pass
+                    else:
+                        sample_dict[tracks][0][x]["sample"].stop()
+                except AttributeError:
+                    pass
+                if sample_dict[tracks][0][x]["steps"][step_num - 1][0]:
+                    try:
+                        sample_dict[tracks][0][x]["sample"].play()
 
-                        except AttributeError:
-                            pass
-        step += 1
-        light_step += 1
-        light_x_pos += 50
+                    except AttributeError:
+                        pass
+
 
 
 while is_running:
@@ -1662,7 +224,7 @@ while is_running:
                                              width=0)
         window_surface.blit(back_text, (913, 38))
         pg.display.flip()
-    elif samples[track_view]["mode"] == "drum":
+    elif samples[track_view][1]["mode"] == "drum":
         for event in pg.event.get():
             if event.type == pg.QUIT:
 
@@ -1690,8 +252,8 @@ while is_running:
                 # Pad press
                 for row in range(len(rows)):
                     for pad in range(len(rows[1])):
-                        if rows[row + 1][pad].x < pg.mouse.get_pos()[0] < (rows[row + 1][pad].x + 30):
-                            if rows[row + 1][pad].y < pg.mouse.get_pos()[1] < (rows[row + 1][pad].y + 30):
+                        if rows[row][pad].x < pg.mouse.get_pos()[0] < (rows[row][pad].x + 30):
+                            if rows[row][pad].y < pg.mouse.get_pos()[1] < (rows[row][pad].y + 30):
                                 if step > 47:
                                     pad += 48
                                 elif step > 31:
@@ -1700,88 +262,87 @@ while is_running:
                                     pad += 16
                                 else:
                                     pass
-                                if samples[track_view][row + 1]["steps"][pad + 1][0]:
-                                    samples[track_view][row + 1]["steps"][pad + 1][0] = False
+                                if samples[track_view][0][row]["steps"][pad][0]:
+                                    samples[track_view][0][row]["steps"][pad][0] = False
                                 else:
-                                    samples[track_view][row + 1]["steps"][pad + 1][0] = True
+                                    samples[track_view][0][row]["steps"][pad][0] = True
                                     try:
-                                        samples[track_view][row + 1]["sample"].play()
+                                        samples[track_view][0][row]["sample"].play()
                                     except AttributeError:
                                         pass
 
                     # Sample select press
 
-                    if sample_select[row + 1].x < pg.mouse.get_pos()[0] < (sample_select[row + 1].x + 70):
-                        if sample_select[row + 1].y < pg.mouse.get_pos()[1] < (sample_select[row + 1].y + 30):
+                    if sample_select[row].x < pg.mouse.get_pos()[0] < (sample_select[row].x + 70):
+                        if sample_select[row].y < pg.mouse.get_pos()[1] < (sample_select[row].y + 30):
                             try:
                                 sample = askopenfilename()
 
                                 try:
-                                    samples[track_view][row + 1]["sample"].fadeout(500)
+                                    samples[track_view][0][row]["sample"].fadeout(500)
                                 except AttributeError:
                                     pass
 
                                 for f in temp_files:
                                     if f == f"temp-samples\\track {track_view} row {row + 1}.wav":
                                         os.remove(f)
-                                samples[track_view][row + 1]["path"] = sample
-                                samples[track_view][row + 1]["sample"] = pg.mixer.Sound(sample)
-                                samples[track_view][row + 1]["sample"].set_volume(samples[track_view][row + 1]["volume"])
+                                samples[track_view][0][row]["path"] = sample
+                                samples[track_view][0][row]["sample"] = pg.mixer.Sound(sample)
+                                samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
 
                             except FileNotFoundError:
                                 pass
 
                     # Volume/pitch adjust
 
-                    if sample_volume[row + 1][0].x < pg.mouse.get_pos()[0] < (sample_volume[row + 1][0].x + 60):
-                        if sample_volume[row + 1][0].y < pg.mouse.get_pos()[1] < (sample_volume[row + 1][0].y + 14):
+                    if sample_volume[row][0].x < pg.mouse.get_pos()[0] < (sample_volume[row][0].x + 60):
+                        if sample_volume[row][0].y < pg.mouse.get_pos()[1] < (sample_volume[row][0].y + 14):
                             try:
                                 if volume_adjust:
-                                    if samples[track_view][row + 1]["volume"] == 1.0:
+                                    if samples[track_view][0][row]["volume"] == 1.0:
                                         pass
                                     else:
-                                        samples[track_view][row + 1]["volume"] = samples[track_view][row + 1]["volume"] + .1
-                                        samples[track_view][row + 1]["sample"].set_volume(samples[track_view][row + 1]["volume"])
+                                        samples[track_view][0][row]["volume"] = samples[track_view][0][row]["volume"] + .1
+                                        samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
                                 else:
                                     try:
-                                        path = f"temp-samples/track {track_view} row {row + 1}.wav"
+                                        path = f"temp-samples/track {track_view} row {row}.wav"
                                         audio = AudioSegment.from_file(path)
 
                                     except FileNotFoundError:
-                                        samples[track_view][row + 1]["pitch"] += 1
-                                        path = samples[track_view][row+1]["path"]
+                                        samples[track_view][0][row]["pitch"] += 1
+                                        path = samples[track_view][0][row]["path"]
                                         audio = AudioSegment.from_file(path)
                                     fast_sound = speed_change(sound=audio, speed=note_half_step_up)
-
-                                    fast_sound.export(f"temp-samples/track {track_view} row {row+1}.wav", format="wav")
-                                    samples[track_view][row + 1]["sample"] = pg.mixer.Sound(f"temp-samples/track {track_view} row {row+1}.wav")
-                                    samples[track_view][row + 1]["sample"].set_volume(samples[track_view][row + 1]["volume"])
+                                    fast_sound.export(f"temp-samples/track {track_view} row {row}.wav", format="wav")
+                                    samples[track_view][0][row]["sample"] = pg.mixer.Sound(f"temp-samples/track {track_view} row {row}.wav")
+                                    samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
                             except AttributeError:
                                 pass
 
-                    if sample_volume[row + 1][1].x < pg.mouse.get_pos()[0] < (sample_volume[row + 1][1].x + 60):
-                        if sample_volume[row + 1][1].y < pg.mouse.get_pos()[1] < (sample_volume[row + 1][1].y + 14):
+                    if sample_volume[row][1].x < pg.mouse.get_pos()[0] < (sample_volume[row][1].x + 60):
+                        if sample_volume[row][1].y < pg.mouse.get_pos()[1] < (sample_volume[row][1].y + 14):
                             try:
                                 if volume_adjust:
-                                    if samples[track_view][row + 1]["volume"] == 0:
+                                    if samples[track_view][0][row]["volume"] == 0:
                                         pass
                                     else:
-                                        samples[track_view][row + 1]["volume"] = samples[track_view][row + 1]["volume"] - .1
-                                        samples[track_view][row + 1]["sample"].set_volume(samples[track_view][row + 1]["volume"])
+                                        samples[track_view][0][row]["volume"] = samples[track_view][0][row]["volume"] - .1
+                                        samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
                                 else:
                                     try:
-                                        path = f"temp-samples/track {track_view} row {row + 1}.wav"
+                                        path = f"temp-samples/track {track_view} row {row}.wav"
                                         audio = AudioSegment.from_file(path)
 
                                     except FileNotFoundError:
-                                        samples[track_view][row + 1]["pitch"] += 1
-                                        path = samples[track_view][row+1]["path"]
+                                        samples[track_view][0][row]["pitch"] += 1
+                                        path = samples[track_view][0][row]["path"]
                                         audio = AudioSegment.from_file(path)
 
                                     slow_sound = speed_change(sound=audio, speed=note_half_step_down)
-                                    slow_sound.export(f"temp-samples/track {track_view} row {row+1}.wav", format="wav")
-                                    samples[track_view][row + 1]["sample"] = pg.mixer.Sound(f"temp-samples/track {track_view} row {row + 1}.wav")
-                                    samples[track_view][row + 1]["sample"].set_volume(samples[track_view][row + 1]["volume"])
+                                    slow_sound.export(f"temp-samples/track {track_view} row {row}.wav", format="wav")
+                                    samples[track_view][0][row]["sample"] = pg.mixer.Sound(f"temp-samples/track {track_view} row {row}.wav")
+                                    samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
                             except AttributeError:
                                 pass
 
@@ -1804,7 +365,9 @@ while is_running:
                     if measure_buttons[0].y < pg.mouse.get_pos()[1] < (measure_buttons[0].y + 15):
                         # step += 16
                         if step < 49:
-                            if step <= step_total:
+                            if measure_number == measure_total:
+                                pass
+                            elif step <= step_total:
                                 step += 17
 
                         else:
@@ -1831,30 +394,36 @@ while is_running:
 
                 if step_buttons[1].x < pg.mouse.get_pos()[0] < (step_buttons[1].x + 15):
                     if step_buttons[1].y < pg.mouse.get_pos()[1] < (step_buttons[1].y + 15):
+
                         if step_total == 16:
                             pass
                         else:
                             step_total -= 16
                             measure_total -= 1
-                            measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False, "white")
-                            step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
+                            if measure_total < measure_number:
+                                measure_number = measure_total
+                                step -= 16
+
+                        measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False,"white")
+                        step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
                             # step = 1
 
                 # Track select
                 for button in range(8):
                     if track_select[button].x < pg.mouse.get_pos()[0] < (track_select[button].x + 30):
                         if track_select[button].y < pg.mouse.get_pos()[1] < (track_select[button].y + 30):
-                            track_numbers[track_view] = track_font.render(f'{track_view}', False, "White")
-                            samples[track_view]["window"] = False
-                            track_view = button + 1
-                            track_numbers[track_view] = track_font.render(f'{track_view}', False, "#555555")
-                            samples[track_view]["window"] = True
+                            track_numbers[track_view] = track_font.render(f'{track_view + 1}', False, "White")
+                            samples[track_view][1]["window"] = False
+                            track_view = button
+                            track_numbers[track_view] = track_font.render(f'{track_view + 1}', False, "#555555")
+                            samples[track_view][1]["window"] = True
 
                 # Mode select
                 if mode_select.x < pg.mouse.get_pos()[0] < (mode_select.x + 80):
                     if mode_select.y < pg.mouse.get_pos()[1] < (mode_select.y + 30):
-                        samples[track_view]["mode"] = "instrument"
-                        mode_text = mode_font.render(f"Mode: {samples[track_view]['mode'].title()}", False, "white")
+                        samples[track_view][1]["mode"] = "instrument"
+                        mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
+
             if event.type == pg.MOUSEBUTTONUP and event.button == 1:
                 if start_button_press:
                     if not audio_start:
@@ -1871,7 +440,18 @@ while is_running:
                     start_button_press = False
 
         if audio_start:
-            play()
+            if clock.step():
+                if light_step > 16:
+                    light_step = 1
+                    light_x_pos = 65
+                play(sample_dict=samples, step_num=step)
+                step += 1
+                light_step += 1
+                light_x_pos += 50
+                if step > step_total:
+                    step = 1
+
+
 
         # Render loop
         window_surface.fill("#555555")
@@ -1902,19 +482,11 @@ while is_running:
         window_surface.blit(record_text, (902, 38))
 
         # Sample select button
-        sample_select = {
-            1: None,
-            2: None,
-            3: None,
-            4: None,
-            5: None,
-            6: None,
-            7: None,
-            8: None
-        }
+        sample_select = [None, None, None, None, None, None, None, None]
+
         sample_y = 100
         for sample in range(8):
-            sample_select[sample + 1] = pg.draw.rect(surface=window_surface,
+            sample_select[sample] = pg.draw.rect(surface=window_surface,
                                                      color="white",
                                                      rect=(900, sample_y, 70, 30),
                                                      width=1)
@@ -1923,16 +495,8 @@ while is_running:
 
         # Draw pads
 
-        rows = {
-            1: [],
-            2: [],
-            3: [],
-            4: [],
-            5: [],
-            6: [],
-            7: [],
-            8: []
-        }
+        rows = [[], [], [], [], [], [], [], []]
+
 
         pad_x_pos = 100
         for pad in range(16):
@@ -1946,13 +510,13 @@ while is_running:
                 pass
             pad_y_pos = 100
             for row in range(8):
-                if samples[track_view][row + 1]["steps"][pad + 1][0]:
-                    rows[row + 1].append(pg.draw.rect(surface=window_surface,
+                if samples[track_view][0][row]["steps"][pad][0]:
+                    rows[row].append(pg.draw.rect(surface=window_surface,
                                                       color="white",
                                                       rect=(pad_x_pos, pad_y_pos, 30, 30),
                                                       width=0))
                 else:
-                    rows[row + 1].append(pg.draw.rect(surface=window_surface,
+                    rows[row].append(pg.draw.rect(surface=window_surface,
                                                       color="white",
                                                       rect=(pad_x_pos, pad_y_pos, 30, 30),
                                                       width=1))
@@ -1960,16 +524,8 @@ while is_running:
             pad_x_pos += 50
 
         # Draw volume button
-        sample_volume = {
-            1: [],
-            2: [],
-            3: [],
-            4: [],
-            5: [],
-            6: [],
-            7: [],
-            8: []
-        }
+        sample_volume = [[], [], [], [], [], [], [], []]
+
         volume_button_y = 100
         y_line = 25
         if volume_adjust:
@@ -1983,14 +539,14 @@ while is_running:
                                            width=1)
         for button in range(8):
 
-            sample_volume[button + 1].append(pg.draw.rect(surface=window_surface,
+            sample_volume[button].append(pg.draw.rect(surface=window_surface,
                                                           color="white",
                                                           rect=(25, volume_button_y, 60, 14),
                                                           width=1))
 
             window_surface.blit(up_text, (30, volume_button_y))
 
-            sample_volume[button + 1].append(pg.draw.rect(surface=window_surface,
+            sample_volume[button].append(pg.draw.rect(surface=window_surface,
                                                           color="white",
                                                           rect=(25, volume_button_y + 15, 60, 14),
                                                           width=1))
@@ -2056,7 +612,7 @@ while is_running:
         track_select = []
         track_x = 583
         for button in range(8):
-            if samples[button + 1]["window"]:
+            if samples[button][1]["window"]:
                 track_select.append(pg.draw.rect(surface=window_surface,
                                                  color="white",
                                                  rect=(track_x, 552, 30, 30),
@@ -2066,7 +622,7 @@ while is_running:
                                                  color="white",
                                                  rect=(track_x, 552, 30, 30),
                                                  width=1))
-            window_surface.blit(track_numbers[button + 1], (track_x + 6, 550))
+            window_surface.blit(track_numbers[button], (track_x + 6, 550))
             track_x += 33
         window_surface.blit(track_text, (500, 550))
 
@@ -2079,7 +635,7 @@ while is_running:
 
         pg.display.flip()
 
-    elif samples[track_view]["mode"] == "instrument":
+    elif samples[track_view][1]["mode"] == "instrument":
         for event in pg.event.get():
             if event.type == pg.QUIT:
 
@@ -2104,13 +660,14 @@ while is_running:
                             volume_adjust = True
 
                 # Pad press
+
                 for row in range(len(rows)):
                     for pad in range(len(rows[1])):
-                        if rows[row + 1][pad].x < pg.mouse.get_pos()[0] < (rows[row + 1][pad].x + 30):
-                            if rows[row + 1][pad].y < pg.mouse.get_pos()[1] < (rows[row + 1][pad].y + 30):
+                        if rows[row][pad].x < pg.mouse.get_pos()[0] < (rows[row][pad].x + 30):
+                            if rows[row][pad].y < pg.mouse.get_pos()[1] < (rows[row][pad].y + 30):
                                 mouse_hold = True
-                                row_click = row+1
-                                pad_hover_x = rows[row + 1][pad].x
+                                row_click = row
+                                pad_hover_x = rows[row][pad].x
                                 original_x = pad_hover_x
                                 if step > 47:
                                     pad += 48
@@ -2120,98 +677,105 @@ while is_running:
                                     pad += 16
                                 else:
                                     pass
-                                pad_hover = pad + 1
+                                pad_hover = pad
                                 original_pad = pad_hover
 
-                                if samples[track_view][row + 1]["steps"][pad + 1][0]:
-
-                                    for x in range(pad+1, (samples[track_view][row + 1]["steps"][pad + 1][2] + 1)):
-                                        samples[track_view][row + 1]["steps"][x][0] = False
-                                        samples[track_view][row + 1]["steps"][x][1] = False
-                                        samples[track_view][row + 1]["steps"][x][2] = 0
-
-
-
+                                if samples[track_view][0][row]["steps"][pad][0]:
+                                    for x in range(pad, (samples[track_view][0][row]["steps"][pad][2] + 1)):
+                                        samples[track_view][0][row]["steps"][x][0] = False
+                                        samples[track_view][0][row]["steps"][x][1] = False
+                                        samples[track_view][0][row]["steps"][x][2] = 0
                                 else:
-                                    samples[track_view][row + 1]["steps"][pad + 1][0] = True
-                                    samples[track_view][row + 1]["steps"][pad + 1][2] = 1
+                                    check_start = pad + 1
+                                    samples[track_view][0][row]["steps"][pad][0] = True
+                                    samples[track_view][0][row]["steps"][pad][1] = False
+                                    samples[track_view][0][row]["steps"][pad][2] = 1
+                                    for x in range(step_total - pad):
+                                        if samples[track_view][0][row]["steps"][check_start][0]:
+                                            break
+                                        elif samples[track_view][0][row]["steps"][check_start][1]:
+                                            samples[track_view][0][row]["steps"][check_start][1] = False
+                                            samples[track_view][0][row]["steps"][check_start][2] = 0
+                                            check_start += 1
 
                                     try:
-                                        samples[track_view][row + 1]["sample"].play()
+                                        samples[track_view][0][row]["sample"].play()
                                     except AttributeError:
                                         pass
 
                     # Sample select press
-                    if sample_select[row + 1].x < pg.mouse.get_pos()[0] < (sample_select[row + 1].x + 70):
-                        if sample_select[row + 1].y < pg.mouse.get_pos()[1] < (sample_select[row + 1].y + 30):
+                    if sample_select[row].x < pg.mouse.get_pos()[0] < (sample_select[row].x + 70):
+                        if sample_select[row].y < pg.mouse.get_pos()[1] < (sample_select[row].y + 30):
                             try:
                                 sample = askopenfilename()
 
                                 try:
-                                    samples[track_view][row + 1]["sample"].fadeout(500)
+                                    samples[track_view][0][row]["sample"].fadeout(500)
                                 except AttributeError:
                                     pass
 
                                 for f in temp_files:
                                     if f == f"temp-samples\\track {track_view} row {row + 1}.wav":
                                         os.remove(f)
-                                samples[track_view][row + 1]["path"] = sample
-                                samples[track_view][row + 1]["sample"] = pg.mixer.Sound(sample)
-                                samples[track_view][row + 1]["sample"].set_volume(samples[track_view][row + 1]["volume"])
+                                samples[track_view][0][row]["path"] = sample
+                                samples[track_view][0][row]["sample"] = pg.mixer.Sound(sample)
+                                samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
 
                             except FileNotFoundError:
                                 pass
 
                     # Volume/pitch adjust
 
-                    if sample_volume[row + 1][0].x < pg.mouse.get_pos()[0] < (sample_volume[row + 1][0].x + 60):
-                        if sample_volume[row + 1][0].y < pg.mouse.get_pos()[1] < (sample_volume[row + 1][0].y + 14):
+                    if sample_volume[row][0].x < pg.mouse.get_pos()[0] < (sample_volume[row][0].x + 60):
+                        if sample_volume[row][0].y < pg.mouse.get_pos()[1] < (sample_volume[row][0].y + 14):
                             try:
                                 if volume_adjust:
-                                    if samples[track_view][row + 1]["volume"] == 1.0:
+                                    if samples[track_view][0][row]["volume"] == 1.0:
                                         pass
                                     else:
-                                        samples[track_view][row + 1]["volume"] = samples[track_view][row + 1]["volume"] + .1
-                                        samples[track_view][row + 1]["sample"].set_volume(samples[track_view][row + 1]["volume"])
+                                        samples[track_view][0][row]["volume"] = samples[track_view][0][row][
+                                                                                    "volume"] + .1
+                                        samples[track_view][0][row]["sample"].set_volume(
+                                            samples[track_view][0][row]["volume"])
                                 else:
                                     try:
-                                        path = f"temp-samples/track {track_view} row {row + 1}.wav"
+                                        path = f"temp-samples/track {track_view} row {row}.wav"
                                         audio = AudioSegment.from_file(path)
 
                                     except FileNotFoundError:
-                                        samples[track_view][row + 1]["pitch"] += 1
-                                        path = samples[track_view][row+1]["path"]
+                                        samples[track_view][0][row]["pitch"] += 1
+                                        path = samples[track_view][0][row]["path"]
                                         audio = AudioSegment.from_file(path)
                                     fast_sound = speed_change(sound=audio, speed=note_half_step_up)
-
-                                    fast_sound.export(f"temp-samples/track {track_view} row {row+1}.wav", format="wav")
-                                    samples[track_view][row + 1]["sample"] = pg.mixer.Sound(f"temp-samples/track {track_view} row {row+1}.wav")
-                                    samples[track_view][row + 1]["sample"].set_volume(samples[track_view][row + 1]["volume"])
+                                    fast_sound.export(f"temp-samples/track {track_view} row {row}.wav", format="wav")
+                                    samples[track_view][0][row]["sample"] = pg.mixer.Sound(f"temp-samples/track {track_view} row {row}.wav")
+                                    samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
                             except AttributeError:
                                 pass
-                    if sample_volume[row + 1][1].x < pg.mouse.get_pos()[0] < (sample_volume[row + 1][1].x + 60):
-                        if sample_volume[row + 1][1].y < pg.mouse.get_pos()[1] < (sample_volume[row + 1][1].y + 14):
+
+                    if sample_volume[row][1].x < pg.mouse.get_pos()[0] < (sample_volume[row][1].x + 60):
+                        if sample_volume[row][1].y < pg.mouse.get_pos()[1] < (sample_volume[row][1].y + 14):
                             try:
                                 if volume_adjust:
-                                    if samples[track_view][row + 1]["volume"] == 0:
+                                    if samples[track_view][0][row]["volume"] == 0:
                                         pass
                                     else:
-                                        samples[track_view][row + 1]["volume"] = samples[track_view][row + 1]["volume"] - .1
-                                        samples[track_view][row + 1]["sample"].set_volume(samples[track_view][row + 1]["volume"])
+                                        samples[track_view][0][row]["volume"] = samples[track_view][0][row]["volume"] - .1
+                                        samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
                                 else:
                                     try:
-                                        path = f"temp-samples/track {track_view} row {row + 1}.wav"
+                                        path = f"temp-samples/track {track_view} row {row}.wav"
                                         audio = AudioSegment.from_file(path)
 
                                     except FileNotFoundError:
-                                        samples[track_view][row + 1]["pitch"] += 1
-                                        path = samples[track_view][row+1]["path"]
+                                        samples[track_view][0][row]["pitch"] += 1
+                                        path = samples[track_view][0][row]["path"]
                                         audio = AudioSegment.from_file(path)
 
                                     slow_sound = speed_change(sound=audio, speed=note_half_step_down)
-                                    slow_sound.export(f"temp-samples/track {track_view} row {row+1}.wav", format="wav")
-                                    samples[track_view][row + 1]["sample"] = pg.mixer.Sound(f"temp-samples/track {track_view} row {row + 1}.wav")
-                                    samples[track_view][row + 1]["sample"].set_volume(samples[track_view][row + 1]["volume"])
+                                    slow_sound.export(f"temp-samples/track {track_view} row {row}.wav", format="wav")
+                                    samples[track_view][0][row]["sample"] = pg.mixer.Sound(f"temp-samples/track {track_view} row {row}.wav")
+                                    samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
                             except AttributeError:
                                 pass
 
@@ -2234,7 +798,9 @@ while is_running:
                     if measure_buttons[0].y < pg.mouse.get_pos()[1] < (measure_buttons[0].y + 15):
                         # step += 16
                         if step < 49:
-                            if step <= step_total:
+                            if measure_number == measure_total:
+                                pass
+                            elif step <= step_total:
                                 step += 17
 
                         else:
@@ -2255,45 +821,49 @@ while is_running:
                         else:
                             step_total += 16
                             measure_total += 1
-                            measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False, "white")
+                            measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False,
+                                                               "white")
                             step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
                             # step = 1
 
                 if step_buttons[1].x < pg.mouse.get_pos()[0] < (step_buttons[1].x + 15):
                     if step_buttons[1].y < pg.mouse.get_pos()[1] < (step_buttons[1].y + 15):
+
                         if step_total == 16:
                             pass
                         else:
                             step_total -= 16
                             measure_total -= 1
-                            measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False, "white")
-                            step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
-                            # step = 1
+                            if measure_total < measure_number:
+                                measure_number = measure_total
+                                step -= 16
+
+                        measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False, "white")
+                        step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
+                        # step = 1
 
                 # Track select
                 for button in range(8):
                     if track_select[button].x < pg.mouse.get_pos()[0] < (track_select[button].x + 30):
                         if track_select[button].y < pg.mouse.get_pos()[1] < (track_select[button].y + 30):
-                            track_numbers[track_view] = track_font.render(f'{track_view}', False, "White")
-                            samples[track_view]["window"] = False
-                            track_view = button + 1
-                            track_numbers[track_view] = track_font.render(f'{track_view}', False, "#555555")
-                            samples[track_view]["window"] = True
+                            track_numbers[track_view] = track_font.render(f'{track_view + 1}', False, "White")
+                            samples[track_view][1]["window"] = False
+                            track_view = button
+                            track_numbers[track_view] = track_font.render(f'{track_view + 1}', False, "#555555")
+                            samples[track_view][1]["window"] = True
 
                 # Mode select
                 if mode_select.x < pg.mouse.get_pos()[0] < (mode_select.x + 80):
                     if mode_select.y < pg.mouse.get_pos()[1] < (mode_select.y + 30):
-                        samples[track_view]["mode"] = "drum"
-                        mode_text = mode_font.render(f"Mode: {samples[track_view]['mode'].title()}", False, "white")
-                        # for step in samples[track_view]:
-                        #     print(step)
+                        samples[track_view][1]["mode"] = "drum"
+                        mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
 
 
             if event.type == pg.MOUSEBUTTONUP and event.button == 1:
                 for row in range(len(rows)):
                     for pad in range(len(rows[1])):
-                        if rows[row + 1][pad].x < pg.mouse.get_pos()[0] < (rows[row + 1][pad].x + 30):
-                            if rows[row + 1][pad].y < pg.mouse.get_pos()[1] < (rows[row + 1][pad].y + 30):
+                        if rows[row][pad].x < pg.mouse.get_pos()[0] < (rows[row][pad].x + 30):
+                            if rows[row][pad].y < pg.mouse.get_pos()[1] < (rows[row][pad].y + 30):
                                 if step > 47:
                                     pad += 48
                                 elif step > 31:
@@ -2304,7 +874,7 @@ while is_running:
                                     pass
 
                                 try:
-                                    samples[track_view][row + 1]["sample"].stop()
+                                    samples[track_view][0][row]["sample"].stop()
                                 except AttributeError:
                                     pass
                 if start_button_press:
@@ -2324,27 +894,38 @@ while is_running:
                     mouse_hold = False
 
         if audio_start:
-            play()
+            if clock.step():
+                if light_step > 16:
+                    light_step = 1
+                    light_x_pos = 65
+                play(sample_dict=samples, step_num=step)
+                step += 1
+                light_step += 1
+                light_x_pos += 50
+                if step > step_total:
+                    step = 1
 
         # Note hold
         if mouse_hold:
             if pg.mouse.get_pos()[0] > pad_hover_x:
-                samples[track_view][row_click]["steps"][original_pad][2] = pad_hover
-                pad_hover_x += 50
-                pad_hover += 1
+                samples[track_view][0][row_click]["steps"][original_pad][2] = pad_hover
+                if pad_hover_x == 850:
+                    pass
+                else:
+                    pad_hover_x += 50
+                    pad_hover += 1
                 try:
-                    samples[track_view][row_click]["steps"][pad_hover][1] = True
-
+                    samples[track_view][0][row_click]["steps"][pad_hover][1] = True
                 except KeyError:
                     pass
             try:
                 if pg.mouse.get_pos()[0] < original_x:
-                    samples[track_view][row_click]["steps"][original_pad][2] = pad_hover
+                    samples[track_view][0][row_click]["steps"][original_pad][2] = pad_hover
                     pad_hover_x = original_x
                     pad_hover = original_pad
                 elif pg.mouse.get_pos()[0] < pad_hover_x:
                     pad_hover_x -= 50
-                    samples[track_view][row_click]["steps"][pad_hover][1] = False
+                    samples[track_view][0][row_click]["steps"][pad_hover][1] = False
                     pad_hover -= 1
             except KeyError:
                 pad_hover_x = original_x
@@ -2379,19 +960,10 @@ while is_running:
         window_surface.blit(record_text, (902, 38))
 
         # Sample select button
-        sample_select = {
-            1: None,
-            2: None,
-            3: None,
-            4: None,
-            5: None,
-            6: None,
-            7: None,
-            8: None
-        }
+        sample_select = [None, None, None, None, None, None, None, None]
         sample_y = 100
         for sample in range(8):
-            sample_select[sample + 1] = pg.draw.rect(surface=window_surface,
+            sample_select[sample] = pg.draw.rect(surface=window_surface,
                                                      color="white",
                                                      rect=(900, sample_y, 70, 30),
                                                      width=1)
@@ -2400,16 +972,7 @@ while is_running:
 
         # Draw pads
 
-        rows = {
-            1: [],
-            2: [],
-            3: [],
-            4: [],
-            5: [],
-            6: [],
-            7: [],
-            8: []
-        }
+        rows = [[], [], [], [], [], [], [], []]
 
         pad_x_pos = 100
         for pad in range(16):
@@ -2423,21 +986,20 @@ while is_running:
                 pass
             pad_y_pos = 100
             for row in range(8):
-
-                if samples[track_view][row + 1]["steps"][pad + 1][1]:
-                    if not samples[track_view][row + 1]["steps"][pad + 1][0]:
+                if samples[track_view][0][row]["steps"][pad][1]:
+                    if not samples[track_view][0][row]["steps"][pad][0]:
                         pg.draw.rect(surface=window_surface,
                                      color="white",
                                      rect=(pad_x_pos - 20, pad_y_pos + 9, 50, 10),
                                      width=0)
 
-                if samples[track_view][row + 1]["steps"][pad + 1][0]:
-                    rows[row + 1].append(pg.draw.rect(surface=window_surface,
+                if samples[track_view][0][row]["steps"][pad][0]:
+                    rows[row].append(pg.draw.rect(surface=window_surface,
                                                       color="white",
                                                       rect=(pad_x_pos, pad_y_pos, 30, 30),
                                                       width=0))
                 else:
-                    rows[row + 1].append(pg.draw.rect(surface=window_surface,
+                    rows[row].append(pg.draw.rect(surface=window_surface,
                                                       color="white",
                                                       rect=(pad_x_pos, pad_y_pos, 30, 30),
                                                       width=1))
@@ -2445,16 +1007,7 @@ while is_running:
             pad_x_pos += 50
 
         # Draw volume button
-        sample_volume = {
-            1: [],
-            2: [],
-            3: [],
-            4: [],
-            5: [],
-            6: [],
-            7: [],
-            8: []
-        }
+        sample_volume = [[], [], [], [], [], [], [], []]
         volume_button_y = 100
         y_line = 25
         if volume_adjust:
@@ -2468,14 +1021,14 @@ while is_running:
                                            width=1)
         for button in range(8):
 
-            sample_volume[button + 1].append(pg.draw.rect(surface=window_surface,
+            sample_volume[button].append(pg.draw.rect(surface=window_surface,
                                                           color="white",
                                                           rect=(25, volume_button_y, 60, 14),
                                                           width=1))
 
             window_surface.blit(up_text, (30, volume_button_y))
 
-            sample_volume[button + 1].append(pg.draw.rect(surface=window_surface,
+            sample_volume[button].append(pg.draw.rect(surface=window_surface,
                                                           color="white",
                                                           rect=(25, volume_button_y + 15, 60, 14),
                                                           width=1))
@@ -2541,7 +1094,7 @@ while is_running:
         track_select = []
         track_x = 583
         for button in range(8):
-            if samples[button + 1]["window"]:
+            if samples[button][1]["window"]:
                 track_select.append(pg.draw.rect(surface=window_surface,
                                                  color="white",
                                                  rect=(track_x, 552, 30, 30),
@@ -2551,7 +1104,7 @@ while is_running:
                                                  color="white",
                                                  rect=(track_x, 552, 30, 30),
                                                  width=1))
-            window_surface.blit(track_numbers[button + 1], (track_x + 6, 550))
+            window_surface.blit(track_numbers[button], (track_x + 6, 550))
             track_x += 33
 
         mode_select = pg.draw.rect(surface=window_surface,
