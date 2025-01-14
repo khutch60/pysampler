@@ -1,10 +1,12 @@
 from metronome import Clock
+from pitch_shift import PitchShift
 import os
 import glob
 import pygame as pg
 import tkinter
 from tkinter.filedialog import askopenfilename
-from pydub import AudioSegment
+
+
 
 temp_files = glob.glob("temp-samples/*")
 for f in temp_files:
@@ -50,16 +52,7 @@ samples[0][0][1]["pitch"] = -2
 
 pg.mixer.set_num_channels(30)
 
-
-def speed_change(sound, speed=1.0):
-    sound_with_altered_frame_rate = sound._spawn(sound.raw_data, overrides={
-        "frame_rate": int(sound.frame_rate * speed)
-    })
-    return sound_with_altered_frame_rate.set_frame_rate(sound.frame_rate)
-
-
-note_half_step_up = 1.05946
-note_half_step_down = 0.94054
+pitch_shift = PitchShift()
 
 step = 1
 clock = Clock()
@@ -140,39 +133,23 @@ for track in range(8):
         track_view = track
 track_numbers[track_view] = track_font.render(f"{track_view + 1}", False, "#555555")
 
+
+#set project parameters
 for track in samples:
-
     for sample in range(8):
-
         try:
             samples[track][0][sample]["sample"].set_volume(samples[track][0][sample]["volume"])
         except AttributeError:
             pass
         if samples[track][0][sample]["pitch"] > 0:
             for x in range(samples[track][0][sample]["pitch"]):
-                try:
-                    path = f"temp-samples/track {track} row {sample}.wav"
-                    audio = AudioSegment.from_file(path)
-                except FileNotFoundError:
-                    path = samples[track][0][sample]["path"]
-                    audio = AudioSegment.from_file(path)
-                slow_sound = speed_change(sound=audio, speed=note_half_step_up)
-                slow_sound.export(f"temp-samples/track {track} row {sample}.wav", format="wav")
-                samples[track][0][sample]["sample"] = pg.mixer.Sound(f"temp-samples/track {track} row {sample}.wav")
-                samples[track][0][sample]["sample"].set_volume(samples[track][0][sample]["volume"])
+                samples[track][0][sample]["sample"] = pitch_shift.shift_up(track=track, sample=sample, samples=samples)
+
         elif samples[track][0][sample]["pitch"] < 0:
             for x in range(samples[track][0][sample]["pitch"] * -1):
-                try:
-                    path = f"temp-samples/track {track} row {sample}.wav"
-                    audio = AudioSegment.from_file(path)
+                samples[track][0][sample]["sample"] = pitch_shift.shift_down(track=track, sample=sample, samples=samples)
 
-                except FileNotFoundError:
-                    path = samples[track][0][sample]["path"]
-                    audio = AudioSegment.from_file(path)
-                slow_sound = speed_change(sound=audio, speed=note_half_step_down)
-                slow_sound.export(f"temp-samples/track {track} row {sample}.wav", format="wav")
-                samples[track][0][sample]["sample"] = pg.mixer.Sound(f"temp-samples/track {track} row {sample}.wav")
-                samples[track][0][sample]["sample"].set_volume(samples[track][0][sample]["volume"])
+
 
 
 def play(sample_dict, step_num):
@@ -225,6 +202,7 @@ while is_running:
         window_surface.blit(back_text, (913, 38))
         pg.display.flip()
     elif samples[track_view][1]["mode"] == "drum":
+        mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
         for event in pg.event.get():
             if event.type == pg.QUIT:
 
@@ -263,7 +241,17 @@ while is_running:
                                 else:
                                     pass
                                 if samples[track_view][0][row]["steps"][pad][0]:
+                                    check_start = pad + 1
                                     samples[track_view][0][row]["steps"][pad][0] = False
+                                    samples[track_view][0][row]["steps"][pad][1] = False
+                                    samples[track_view][0][row]["steps"][pad][2] = 0
+                                    for x in range(step_total - pad):
+                                        if samples[track_view][0][row]["steps"][check_start][0]:
+                                            break
+                                        elif samples[track_view][0][row]["steps"][check_start][1]:
+                                            samples[track_view][0][row]["steps"][check_start][1] = False
+                                            samples[track_view][0][row]["steps"][check_start][2] = 0
+                                            check_start += 1
                                 else:
                                     samples[track_view][0][row]["steps"][pad][0] = True
                                     try:
@@ -305,18 +293,9 @@ while is_running:
                                         samples[track_view][0][row]["volume"] = samples[track_view][0][row]["volume"] + .1
                                         samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
                                 else:
-                                    try:
-                                        path = f"temp-samples/track {track_view} row {row}.wav"
-                                        audio = AudioSegment.from_file(path)
-
-                                    except FileNotFoundError:
-                                        samples[track_view][0][row]["pitch"] += 1
-                                        path = samples[track_view][0][row]["path"]
-                                        audio = AudioSegment.from_file(path)
-                                    fast_sound = speed_change(sound=audio, speed=note_half_step_up)
-                                    fast_sound.export(f"temp-samples/track {track_view} row {row}.wav", format="wav")
-                                    samples[track_view][0][row]["sample"] = pg.mixer.Sound(f"temp-samples/track {track_view} row {row}.wav")
-                                    samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
+                                    samples[track_view][0][row]["sample"] = pitch_shift.shift_up(track=track_view,
+                                                                                                 sample=row,
+                                                                                                 samples=samples)
                             except AttributeError:
                                 pass
 
@@ -330,19 +309,9 @@ while is_running:
                                         samples[track_view][0][row]["volume"] = samples[track_view][0][row]["volume"] - .1
                                         samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
                                 else:
-                                    try:
-                                        path = f"temp-samples/track {track_view} row {row}.wav"
-                                        audio = AudioSegment.from_file(path)
-
-                                    except FileNotFoundError:
-                                        samples[track_view][0][row]["pitch"] += 1
-                                        path = samples[track_view][0][row]["path"]
-                                        audio = AudioSegment.from_file(path)
-
-                                    slow_sound = speed_change(sound=audio, speed=note_half_step_down)
-                                    slow_sound.export(f"temp-samples/track {track_view} row {row}.wav", format="wav")
-                                    samples[track_view][0][row]["sample"] = pg.mixer.Sound(f"temp-samples/track {track_view} row {row}.wav")
-                                    samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
+                                    samples[track_view][0][row]["sample"] = pitch_shift.shift_down(track=track_view,
+                                                                                                 sample=row,
+                                                                                                 samples=samples)
                             except AttributeError:
                                 pass
 
@@ -636,6 +605,7 @@ while is_running:
         pg.display.flip()
 
     elif samples[track_view][1]["mode"] == "instrument":
+        mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
         for event in pg.event.get():
             if event.type == pg.QUIT:
 
@@ -682,6 +652,7 @@ while is_running:
 
                                 if samples[track_view][0][row]["steps"][pad][0]:
                                     for x in range(pad, (samples[track_view][0][row]["steps"][pad][2] + 1)):
+                                        mouse_hold = False
                                         samples[track_view][0][row]["steps"][x][0] = False
                                         samples[track_view][0][row]["steps"][x][1] = False
                                         samples[track_view][0][row]["steps"][x][2] = 0
@@ -738,18 +709,9 @@ while is_running:
                                         samples[track_view][0][row]["sample"].set_volume(
                                             samples[track_view][0][row]["volume"])
                                 else:
-                                    try:
-                                        path = f"temp-samples/track {track_view} row {row}.wav"
-                                        audio = AudioSegment.from_file(path)
-
-                                    except FileNotFoundError:
-                                        samples[track_view][0][row]["pitch"] += 1
-                                        path = samples[track_view][0][row]["path"]
-                                        audio = AudioSegment.from_file(path)
-                                    fast_sound = speed_change(sound=audio, speed=note_half_step_up)
-                                    fast_sound.export(f"temp-samples/track {track_view} row {row}.wav", format="wav")
-                                    samples[track_view][0][row]["sample"] = pg.mixer.Sound(f"temp-samples/track {track_view} row {row}.wav")
-                                    samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
+                                    samples[track_view][0][row]["sample"] = pitch_shift.shift_up(track=track_view,
+                                                                                                 sample=row,
+                                                                                                 samples=samples)
                             except AttributeError:
                                 pass
 
@@ -763,19 +725,9 @@ while is_running:
                                         samples[track_view][0][row]["volume"] = samples[track_view][0][row]["volume"] - .1
                                         samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
                                 else:
-                                    try:
-                                        path = f"temp-samples/track {track_view} row {row}.wav"
-                                        audio = AudioSegment.from_file(path)
-
-                                    except FileNotFoundError:
-                                        samples[track_view][0][row]["pitch"] += 1
-                                        path = samples[track_view][0][row]["path"]
-                                        audio = AudioSegment.from_file(path)
-
-                                    slow_sound = speed_change(sound=audio, speed=note_half_step_down)
-                                    slow_sound.export(f"temp-samples/track {track_view} row {row}.wav", format="wav")
-                                    samples[track_view][0][row]["sample"] = pg.mixer.Sound(f"temp-samples/track {track_view} row {row}.wav")
-                                    samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
+                                    samples[track_view][0][row]["sample"] = pitch_shift.shift_down(track=track_view,
+                                                                                                   sample=row,
+                                                                                                   samples=samples)
                             except AttributeError:
                                 pass
 
@@ -856,6 +808,7 @@ while is_running:
                 if mode_select.x < pg.mouse.get_pos()[0] < (mode_select.x + 80):
                     if mode_select.y < pg.mouse.get_pos()[1] < (mode_select.y + 30):
                         samples[track_view][1]["mode"] = "drum"
+
                         mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
 
 
