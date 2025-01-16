@@ -5,7 +5,8 @@ import glob
 import pygame as pg
 import tkinter
 from tkinter.filedialog import askopenfilename
-
+from text import *
+from playback import play
 
 
 temp_files = glob.glob("temp-samples/*")
@@ -83,48 +84,12 @@ recording = False
 
 track_view = 0
 
-start_font = pg.font.SysFont('Arial', 20)
-start_text = start_font.render("Play", False, "#555555")
 
-record_font = pg.font.SysFont('Arial', 20)
-record_text = record_font.render("Record", False, "#555555")
-
-back_font = pg.font.SysFont('Arial', 20)
-back_text = back_font.render("Back", False, "#555555")
-
-select_font = pg.font.SysFont('Arial', 20)
-text_surface = select_font.render('Select', False, "white")
-
-up_down_font = pg.font.SysFont('Arial', 10)
-up_text = up_down_font.render('Up', False, "white")
-down_text = up_down_font.render('Down', False, "white")
-
-volume_font = pg.font.SysFont('Arial', 15)
-volume_text = volume_font.render('Volume', False, "white")
-
-bpm_font = pg.font.SysFont('Arial', 30)
 bpm_text = bpm_font.render(f"{bpm} bpm", False, "white")
-
-measure_font = pg.font.SysFont('Arial', 30)
 measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False, "white")
-
-step_font = pg.font.SysFont('Arial', 30)
 step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
-
-track_font = pg.font.SysFont('Arial', 30)
-track_text = track_font.render("Track:", False, "white")
-
-mode_font = pg.font.SysFont('Arial', 30)
 mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
 
-track_numbers = [track_font.render('1', False, "white"),
-                 track_font.render('2', False, "white"),
-                 track_font.render('3', False, "white"),
-                 track_font.render('4', False, "white"),
-                 track_font.render('5', False, "white"),
-                 track_font.render('6', False, "white"),
-                 track_font.render('7', False, "white"),
-                 track_font.render('8', False, "white")]
 
 
 
@@ -152,34 +117,6 @@ for track in samples:
 
 
 
-def play(sample_dict, step_num):
-    for tracks in range(8):
-        if sample_dict[tracks][1]["mode"] == "drum":
-            for x in range(8):
-                if sample_dict[tracks][0][x]["steps"][step_num - 1][0]:
-                    try:
-                        sample_dict[tracks][0][x]["sample"].stop()
-                        sample_dict[tracks][0][x]["sample"].play()
-                    except AttributeError:
-                        pass
-        elif sample_dict[tracks][1]["mode"] == "instrument":
-            for x in range(8):
-                try:
-                    if sample_dict[tracks][0][x]["steps"][step_num - 1][1]:
-                        pass
-                    else:
-                        sample_dict[tracks][0][x]["sample"].stop()
-                except AttributeError:
-                    pass
-                if sample_dict[tracks][0][x]["steps"][step_num - 1][0]:
-                    try:
-                        sample_dict[tracks][0][x]["sample"].play()
-
-                    except AttributeError:
-                        pass
-
-
-
 while is_running:
     if recording:
         for event in pg.event.get():
@@ -201,6 +138,7 @@ while is_running:
                                              width=0)
         window_surface.blit(back_text, (913, 38))
         pg.display.flip()
+
     elif samples[track_view][1]["mode"] == "drum":
         mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
         for event in pg.event.get():
@@ -241,7 +179,7 @@ while is_running:
                                 else:
                                     pass
                                 if samples[track_view][0][row]["steps"][pad][0]:
-                                    check_start = pad + 1
+                                    check_start = pad
                                     samples[track_view][0][row]["steps"][pad][0] = False
                                     samples[track_view][0][row]["steps"][pad][1] = False
                                     samples[track_view][0][row]["steps"][pad][2] = 0
@@ -657,7 +595,7 @@ while is_running:
                                         samples[track_view][0][row]["steps"][x][1] = False
                                         samples[track_view][0][row]["steps"][x][2] = 0
                                 else:
-                                    check_start = pad + 1
+                                    check_start = pad
                                     samples[track_view][0][row]["steps"][pad][0] = True
                                     samples[track_view][0][row]["steps"][pad][1] = False
                                     samples[track_view][0][row]["steps"][pad][2] = 1
