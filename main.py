@@ -42,14 +42,14 @@ for x in range(8):
 
 samples[0][1]["window"] = True
 
-samples[0][0][0]["sample"] = pg.mixer.Sound("samples/synthwave-kick-punch_C_minor.wav")
-samples[0][0][0]["path"] = "samples/synthwave-kick-punch_C_minor.wav"
-samples[0][0][0]["pitch"] = -2
-samples[0][0][0]["steps"][3][0] = True
-
-samples[0][0][1]["sample"] = pg.mixer.Sound("samples/origin-snare.wav")
-samples[0][0][1]["path"] = "samples/origin-snare.wav"
-samples[0][0][1]["pitch"] = -2
+# samples[0][0][0]["sample"] = pg.mixer.Sound("samples/synthwave-kick-punch_C_minor.wav")
+# samples[0][0][0]["path"] = "samples/synthwave-kick-punch_C_minor.wav"
+# samples[0][0][0]["pitch"] = -2
+# samples[0][0][0]["steps"][3][0] = True
+#
+# samples[0][0][1]["sample"] = pg.mixer.Sound("samples/origin-snare.wav")
+# samples[0][0][1]["path"] = "samples/origin-snare.wav"
+# samples[0][0][1]["pitch"] = -2
 
 pg.mixer.set_num_channels(30)
 
@@ -590,27 +590,39 @@ while is_running:
 
                                 if samples[track_view][0][row]["steps"][pad][0]:
                                     for x in range(pad, (samples[track_view][0][row]["steps"][pad][2] + 1)):
-                                        mouse_hold = False
                                         samples[track_view][0][row]["steps"][x][0] = False
                                         samples[track_view][0][row]["steps"][x][1] = False
                                         samples[track_view][0][row]["steps"][x][2] = 0
+                                        if samples[track_view][0][row]["steps"][x + 1][0]:
+                                            break
+                                    mouse_hold = False
+                                elif samples[track_view][0][row]["steps"][pad][1]:
+                                    check_start = pad
+                                    samples[track_view][0][row]["steps"][check_start][0] = True
+                                    for x in range(step_total - pad):
+                                        samples[track_view][0][row]["steps"][check_start][1] = False
+                                        samples[track_view][0][row]["steps"][check_start][2] = 0
+                                        check_start += 1
                                 else:
                                     check_start = pad
+                                    print(check_start)
                                     samples[track_view][0][row]["steps"][pad][0] = True
                                     samples[track_view][0][row]["steps"][pad][1] = False
                                     samples[track_view][0][row]["steps"][pad][2] = 1
-                                    for x in range(step_total - pad):
+                                    for x in range(step_total - pad + 1):
                                         if samples[track_view][0][row]["steps"][check_start][0]:
                                             break
-                                        elif samples[track_view][0][row]["steps"][check_start][1]:
+                                        else:
                                             samples[track_view][0][row]["steps"][check_start][1] = False
                                             samples[track_view][0][row]["steps"][check_start][2] = 0
-                                            check_start += 1
+                                        check_start += 1
+
 
                                     try:
                                         samples[track_view][0][row]["sample"].play()
                                     except AttributeError:
                                         pass
+                                    print(samples[track_view][0][row]["steps"])
 
                     # Sample select press
                     if sample_select[row].x < pg.mouse.get_pos()[0] < (sample_select[row].x + 70):
@@ -800,6 +812,7 @@ while is_running:
         if mouse_hold:
             if pg.mouse.get_pos()[0] > pad_hover_x:
                 samples[track_view][0][row_click]["steps"][original_pad][2] = pad_hover
+
                 if pad_hover_x == 850:
                     pass
                 else:
