@@ -7,6 +7,7 @@ import tkinter
 from tkinter.filedialog import askopenfilename
 from text import *
 from playback import play
+from file_handler import Samples
 
 
 temp_files = glob.glob("temp-samples/*")
@@ -27,17 +28,18 @@ pygame_clock = pg.time.Clock()
 
 is_running = True
 
-
 # Sample playback tracking
-samples = {}
+file_load = Samples()
+file_load.new()
+samples = file_load.samples
 
-for x in range(8):
-    samples[x] = [[{"sample": None,
-        "path": None,
-        "steps": [[False, False, 0] for x in range(64)],
-        "volume": 0.5,
-        "pitch": 0} for y in range(8)],
-         {"window": False, "mode": "drum"}]
+# for x in range(8):
+#     samples[x] = [[{"sample": None,
+#         "path": None,
+#         "steps": [[False, False, 0] for x in range(64)],
+#         "volume": 0.5,
+#         "pitch": 0} for y in range(8)],
+#          {"window": False, "mode": "drum"}]
 
 
 samples[0][1]["window"] = True
@@ -58,7 +60,7 @@ pitch_shift = PitchShift()
 step = 1
 clock = Clock()
 
-bpm = 80
+bpm = file_load.params["bpm"]
 step_length = ((60/bpm) / 4)
 clock.step_length = step_length
 audio_start = False
@@ -66,9 +68,9 @@ audio_start = False
 light_step = 1
 light_x_pos = -10
 
-step_total = 64
+step_total = file_load.params["steps"]
 measure_number = 1
-measure_total = 4
+measure_total = file_load.params["measures"]
 
 start_button_press = False
 
@@ -100,19 +102,19 @@ track_numbers[track_view] = track_font.render(f"{track_view + 1}", False, "#5555
 
 
 #set project parameters
-for track in samples:
-    for sample in range(8):
-        try:
-            samples[track][0][sample]["sample"].set_volume(samples[track][0][sample]["volume"])
-        except AttributeError:
-            pass
-        if samples[track][0][sample]["pitch"] > 0:
-            for x in range(samples[track][0][sample]["pitch"]):
-                samples[track][0][sample]["sample"] = pitch_shift.shift_up(track=track, sample=sample, samples=samples)
-
-        elif samples[track][0][sample]["pitch"] < 0:
-            for x in range(samples[track][0][sample]["pitch"] * -1):
-                samples[track][0][sample]["sample"] = pitch_shift.shift_down(track=track, sample=sample, samples=samples)
+# for track in samples:
+#     for sample in range(8):
+#         try:
+#             samples[track][0][sample]["sample"].set_volume(samples[track][0][sample]["volume"])
+#         except AttributeError:
+#             pass
+#         if samples[track][0][sample]["pitch"] > 0:
+#             for x in range(samples[track][0][sample]["pitch"]):
+#                 samples[track][0][sample]["sample"] = pitch_shift.shift_up(track=track, sample=sample, samples=samples)
+#
+#         elif samples[track][0][sample]["pitch"] < 0:
+#             for x in range(samples[track][0][sample]["pitch"] * -1):
+#                 samples[track][0][sample]["sample"] = pitch_shift.shift_down(track=track, sample=sample, samples=samples)
 
 
 
@@ -152,6 +154,27 @@ while is_running:
                     if 550 < pg.mouse.get_pos()[1] < 580:
                         start_button_press = True
 
+                # Save button press
+                if save_button.x < pg.mouse.get_pos()[0] < save_button.x + 30:
+                    if save_button.y < pg.mouse.get_pos()[1] < save_button.y + 30:
+                        file_load.save()
+
+
+                # Load button press
+                if load_button.x < pg.mouse.get_pos()[0] < load_button.x + 30:
+                    if load_button.y < pg.mouse.get_pos()[1] < load_button.y + 30:
+                        file_load.load()
+                        samples = file_load.samples
+                        bpm = file_load.params["bpm"]
+                        step_total = file_load.params["steps"]
+                        measure_total = file_load.params["measures"]
+                        step_length = (60 / bpm) / 4
+                        clock.step_length = step_length
+                        bpm_text = bpm_font.render(f"{bpm} bpm", False, "white")
+                        measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False, "white")
+                        step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
+                        mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
+
                 # Record button press
                 if record_button.x < pg.mouse.get_pos()[0] < (record_button.x + 70):
                     if record_button.y < pg.mouse.get_pos()[1] < (record_button.y + 30):
@@ -178,20 +201,28 @@ while is_running:
                                     pad += 16
                                 else:
                                     pass
+
                                 if samples[track_view][0][row]["steps"][pad][0]:
                                     check_start = pad
                                     samples[track_view][0][row]["steps"][pad][0] = False
                                     samples[track_view][0][row]["steps"][pad][1] = False
                                     samples[track_view][0][row]["steps"][pad][2] = 0
                                     for x in range(step_total - pad):
-                                        if samples[track_view][0][row]["steps"][check_start][0]:
-                                            break
-                                        elif samples[track_view][0][row]["steps"][check_start][1]:
-                                            samples[track_view][0][row]["steps"][check_start][1] = False
-                                            samples[track_view][0][row]["steps"][check_start][2] = 0
+                                        if samples[track_view][0][row]["steps"][check_start + 1][1]:
+                                            samples[track_view][0][row]["steps"][check_start + 1][1] = False
+                                            samples[track_view][0][row]["steps"][check_start + 1][2] = 0
                                             check_start += 1
+                                elif samples[track_view][0][row]["steps"][pad][1]:
+                                    check_start = pad
+                                    samples[track_view][0][row]["steps"][check_start][0] = True
+                                    for x in range(step_total - pad):
+                                        samples[track_view][0][row]["steps"][check_start][1] = False
+                                        samples[track_view][0][row]["steps"][check_start][2] = 0
+                                        check_start += 1
                                 else:
                                     samples[track_view][0][row]["steps"][pad][0] = True
+                                    samples[track_view][0][row]["steps"][pad][1] = False
+                                    samples[track_view][0][row]["steps"][pad][2] = 1
                                     try:
                                         samples[track_view][0][row]["sample"].play()
                                     except AttributeError:
@@ -203,14 +234,14 @@ while is_running:
                         if sample_select[row].y < pg.mouse.get_pos()[1] < (sample_select[row].y + 30):
                             try:
                                 sample = askopenfilename()
-
                                 try:
                                     samples[track_view][0][row]["sample"].fadeout(500)
                                 except AttributeError:
                                     pass
 
                                 for f in temp_files:
-                                    if f == f"temp-samples\\track {track_view} row {row + 1}.wav":
+                                    if f == f"temp-samples\\track {track_view} row {row}.wav":
+
                                         os.remove(f)
                                 samples[track_view][0][row]["path"] = sample
                                 samples[track_view][0][row]["sample"] = pg.mixer.Sound(sample)
@@ -225,7 +256,7 @@ while is_running:
                         if sample_volume[row][0].y < pg.mouse.get_pos()[1] < (sample_volume[row][0].y + 14):
                             try:
                                 if volume_adjust:
-                                    if samples[track_view][0][row]["volume"] == 1.0:
+                                    if samples[track_view][0][row]["volume"] >= 1.0:
                                         pass
                                     else:
                                         samples[track_view][0][row]["volume"] = samples[track_view][0][row]["volume"] + .1
@@ -234,6 +265,7 @@ while is_running:
                                     samples[track_view][0][row]["sample"] = pitch_shift.shift_up(track=track_view,
                                                                                                  sample=row,
                                                                                                  samples=samples)
+                                    samples[track_view][0][row]["pitch"] += 1
                             except AttributeError:
                                 pass
 
@@ -241,7 +273,7 @@ while is_running:
                         if sample_volume[row][1].y < pg.mouse.get_pos()[1] < (sample_volume[row][1].y + 14):
                             try:
                                 if volume_adjust:
-                                    if samples[track_view][0][row]["volume"] == 0:
+                                    if samples[track_view][0][row]["volume"] <= 0:
                                         pass
                                     else:
                                         samples[track_view][0][row]["volume"] = samples[track_view][0][row]["volume"] - .1
@@ -250,6 +282,7 @@ while is_running:
                                     samples[track_view][0][row]["sample"] = pitch_shift.shift_down(track=track_view,
                                                                                                  sample=row,
                                                                                                  samples=samples)
+                                    samples[track_view][0][row]["pitch"] -= 1
                             except AttributeError:
                                 pass
 
@@ -257,12 +290,14 @@ while is_running:
                 if bpm_buttons[0].x < pg.mouse.get_pos()[0] < (bpm_buttons[0].x + 15):
                     if bpm_buttons[0].y < pg.mouse.get_pos()[1] < (bpm_buttons[0].y + 15):
                         bpm += 1
+                        file_load.params["bpm"] = bpm
                         step_length = (60 / bpm) / 4
                         clock.step_length = step_length
                         bpm_text = bpm_font.render(f"{bpm} bpm", False, "white")
                 if bpm_buttons[1].x < pg.mouse.get_pos()[0] < (bpm_buttons[1].x + 15):
                     if bpm_buttons[1].y < pg.mouse.get_pos()[1] < (bpm_buttons[1].y + 15):
                         bpm -= 1
+                        file_load.params["bpm"] = bpm
                         step_length = (60 / bpm) / 4
                         clock.step_length = step_length
                         bpm_text = bpm_font.render(f"{bpm} bpm", False, "white")
@@ -294,7 +329,9 @@ while is_running:
                             pass
                         else:
                             step_total += 16
+                            file_load.params["steps"] = step_total
                             measure_total += 1
+                            file_load.params["measures"] = measure_total
                             measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False, "white")
                             step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
                             # step = 1
@@ -306,7 +343,9 @@ while is_running:
                             pass
                         else:
                             step_total -= 16
+                            file_load.params["steps"] = step_total
                             measure_total -= 1
+                            file_load.params["measures"] = measure_total
                             if measure_total < measure_number:
                                 measure_number = measure_total
                                 step -= 16
@@ -380,6 +419,20 @@ while is_running:
                          rect=(900, 552, 70, 30),
                          width=0)
             window_surface.blit(start_text, (915, 555))
+
+        # Draw save and load buttons
+        save_button = pg.draw.rect(surface=window_surface,
+                         color="white",
+                         rect=(900, 502, 30, 30),
+                         width=0)
+        window_surface.blit(save_text, (908, 505))
+
+        load_button = pg.draw.rect(surface=window_surface,
+                         color="white",
+                         rect=(940, 502, 30, 30),
+                         width=0)
+        window_surface.blit(load_text, (950, 505))
+
 
         # Record button
         record_button = pg.draw.rect(surface=window_surface,
@@ -554,6 +607,28 @@ while is_running:
                     if 550 < pg.mouse.get_pos()[1] < 580:
                         start_button_press = True
 
+                # Save button press
+                if save_button.x < pg.mouse.get_pos()[0] < save_button.x + 30:
+                    if save_button.y < pg.mouse.get_pos()[1] < save_button.y + 30:
+                        file_load.save()
+
+
+                # Load button press
+                if load_button.x < pg.mouse.get_pos()[0] < load_button.x + 30:
+                    if load_button.y < pg.mouse.get_pos()[1] < load_button.y + 30:
+                        file_load.load()
+                        samples = file_load.samples
+                        bpm = file_load.params["bpm"]
+                        step_total = file_load.params["steps"]
+                        measure_total = file_load.params["measures"]
+                        step_length = (60 / bpm) / 4
+                        clock.step_length = step_length
+                        bpm_text = bpm_font.render(f"{bpm} bpm", False, "white")
+                        measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False, "white")
+                        step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
+                        mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
+
+
                 # Record button press
                 if record_button.x < pg.mouse.get_pos()[0] < (record_button.x + 70):
                     if record_button.y < pg.mouse.get_pos()[1] < (record_button.y + 30):
@@ -589,6 +664,7 @@ while is_running:
                                 original_pad = pad_hover
 
                                 if samples[track_view][0][row]["steps"][pad][0]:
+                                    samples[track_view][0][row]["steps"][pad][0] = False
                                     for x in range(pad, (samples[track_view][0][row]["steps"][pad][2] + 1)):
                                         samples[track_view][0][row]["steps"][x][0] = False
                                         samples[track_view][0][row]["steps"][x][1] = False
@@ -605,7 +681,6 @@ while is_running:
                                         check_start += 1
                                 else:
                                     check_start = pad
-                                    print(check_start)
                                     samples[track_view][0][row]["steps"][pad][0] = True
                                     samples[track_view][0][row]["steps"][pad][1] = False
                                     samples[track_view][0][row]["steps"][pad][2] = 1
@@ -622,7 +697,7 @@ while is_running:
                                         samples[track_view][0][row]["sample"].play()
                                     except AttributeError:
                                         pass
-                                    print(samples[track_view][0][row]["steps"])
+
 
                     # Sample select press
                     if sample_select[row].x < pg.mouse.get_pos()[0] < (sample_select[row].x + 70):
@@ -636,7 +711,7 @@ while is_running:
                                     pass
 
                                 for f in temp_files:
-                                    if f == f"temp-samples\\track {track_view} row {row + 1}.wav":
+                                    if f == f"temp-samples\\track {track_view} row {row}.wav":
                                         os.remove(f)
                                 samples[track_view][0][row]["path"] = sample
                                 samples[track_view][0][row]["sample"] = pg.mixer.Sound(sample)
@@ -651,7 +726,7 @@ while is_running:
                         if sample_volume[row][0].y < pg.mouse.get_pos()[1] < (sample_volume[row][0].y + 14):
                             try:
                                 if volume_adjust:
-                                    if samples[track_view][0][row]["volume"] == 1.0:
+                                    if samples[track_view][0][row]["volume"] >= 1.0:
                                         pass
                                     else:
                                         samples[track_view][0][row]["volume"] = samples[track_view][0][row][
@@ -662,6 +737,7 @@ while is_running:
                                     samples[track_view][0][row]["sample"] = pitch_shift.shift_up(track=track_view,
                                                                                                  sample=row,
                                                                                                  samples=samples)
+                                    samples[track_view][0][row]["pitch"] += 1
                             except AttributeError:
                                 pass
 
@@ -669,7 +745,7 @@ while is_running:
                         if sample_volume[row][1].y < pg.mouse.get_pos()[1] < (sample_volume[row][1].y + 14):
                             try:
                                 if volume_adjust:
-                                    if samples[track_view][0][row]["volume"] == 0:
+                                    if samples[track_view][0][row]["volume"] <= 0:
                                         pass
                                     else:
                                         samples[track_view][0][row]["volume"] = samples[track_view][0][row]["volume"] - .1
@@ -678,6 +754,7 @@ while is_running:
                                     samples[track_view][0][row]["sample"] = pitch_shift.shift_down(track=track_view,
                                                                                                    sample=row,
                                                                                                    samples=samples)
+                                    samples[track_view][0][row]["pitch"] -= 1
                             except AttributeError:
                                 pass
 
@@ -685,12 +762,14 @@ while is_running:
                 if bpm_buttons[0].x < pg.mouse.get_pos()[0] < (bpm_buttons[0].x + 15):
                     if bpm_buttons[0].y < pg.mouse.get_pos()[1] < (bpm_buttons[0].y + 15):
                         bpm += 1
+                        file_load.params["bpm"] = bpm
                         step_length = (60 / bpm) / 4
                         clock.step_length = step_length
                         bpm_text = bpm_font.render(f"{bpm} bpm", False, "white")
                 if bpm_buttons[1].x < pg.mouse.get_pos()[0] < (bpm_buttons[1].x + 15):
                     if bpm_buttons[1].y < pg.mouse.get_pos()[1] < (bpm_buttons[1].y + 15):
                         bpm -= 1
+                        file_load.params["bpm"] = bpm
                         step_length = (60 / bpm) / 4
                         clock.step_length = step_length
                         bpm_text = bpm_font.render(f"{bpm} bpm", False, "white")
@@ -722,7 +801,9 @@ while is_running:
                             pass
                         else:
                             step_total += 16
+                            file_load.params["steps"] = step_total
                             measure_total += 1
+                            file_load.params["measures"] = measure_total
                             measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False,
                                                                "white")
                             step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
@@ -735,7 +816,9 @@ while is_running:
                             pass
                         else:
                             step_total -= 16
+                            file_load.params["steps"] = step_total
                             measure_total -= 1
+                            file_load.params["measures"] = measure_total
                             if measure_total < measure_number:
                                 measure_number = measure_total
                                 step -= 16
@@ -811,7 +894,10 @@ while is_running:
         # Note hold
         if mouse_hold:
             if pg.mouse.get_pos()[0] > pad_hover_x:
+
                 samples[track_view][0][row_click]["steps"][original_pad][2] = pad_hover
+                if samples[track_view][0][row_click]["steps"][pad_hover + 1][0]:
+                    mouse_hold = False
 
                 if pad_hover_x == 850:
                     pass
@@ -855,6 +941,19 @@ while is_running:
                          rect=(900, 552, 70, 30),
                          width=0)
             window_surface.blit(start_text, (915, 555))
+
+        # Draw save and load buttons
+        save_button = pg.draw.rect(surface=window_surface,
+                                   color="white",
+                                   rect=(900, 502, 30, 30),
+                                   width=0)
+        window_surface.blit(save_text, (908, 505))
+
+        load_button = pg.draw.rect(surface=window_surface,
+                                   color="white",
+                                   rect=(940, 502, 30, 30),
+                                   width=0)
+        window_surface.blit(load_text, (950, 505))
 
         # Record button
         record_button = pg.draw.rect(surface=window_surface,

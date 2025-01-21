@@ -21,6 +21,10 @@ down_text = up_down_font.render('Down', False, "white")
 volume_font = pg.font.SysFont('Arial', 15)
 volume_text = volume_font.render('Volume', False, "white")
 
+save_load_font = pg.font.SysFont('Arial', 20)
+save_text = save_load_font.render('S', False, "#555555")
+load_text = save_load_font.render('L', False, "#555555")
+
 bpm_font = pg.font.SysFont('Arial', 30)
 
 
