@@ -32,26 +32,7 @@ is_running = True
 file_load = Samples()
 file_load.new()
 samples = file_load.samples
-
-# for x in range(8):
-#     samples[x] = [[{"sample": None,
-#         "path": None,
-#         "steps": [[False, False, 0] for x in range(64)],
-#         "volume": 0.5,
-#         "pitch": 0} for y in range(8)],
-#          {"window": False, "mode": "drum"}]
-
-
 samples[0][1]["window"] = True
-
-# samples[0][0][0]["sample"] = pg.mixer.Sound("samples/synthwave-kick-punch_C_minor.wav")
-# samples[0][0][0]["path"] = "samples/synthwave-kick-punch_C_minor.wav"
-# samples[0][0][0]["pitch"] = -2
-# samples[0][0][0]["steps"][3][0] = True
-#
-# samples[0][0][1]["sample"] = pg.mixer.Sound("samples/origin-snare.wav")
-# samples[0][0][1]["path"] = "samples/origin-snare.wav"
-# samples[0][0][1]["pitch"] = -2
 
 pg.mixer.set_num_channels(30)
 
@@ -92,31 +73,10 @@ measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}",
 step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
 mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
 
-
-
-
 for track in range(8):
     if samples[track][1]["window"]:
         track_view = track
 track_numbers[track_view] = track_font.render(f"{track_view + 1}", False, "#555555")
-
-
-#set project parameters
-# for track in samples:
-#     for sample in range(8):
-#         try:
-#             samples[track][0][sample]["sample"].set_volume(samples[track][0][sample]["volume"])
-#         except AttributeError:
-#             pass
-#         if samples[track][0][sample]["pitch"] > 0:
-#             for x in range(samples[track][0][sample]["pitch"]):
-#                 samples[track][0][sample]["sample"] = pitch_shift.shift_up(track=track, sample=sample, samples=samples)
-#
-#         elif samples[track][0][sample]["pitch"] < 0:
-#             for x in range(samples[track][0][sample]["pitch"] * -1):
-#                 samples[track][0][sample]["sample"] = pitch_shift.shift_down(track=track, sample=sample, samples=samples)
-
-
 
 
 while is_running:
