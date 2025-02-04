@@ -1,19 +1,13 @@
 from metronome import Clock
 from pitch_shift import PitchShift
-import os
-import glob
 import pygame as pg
 import tkinter
 from tkinter.filedialog import askopenfilename
 from text import *
 from playback import play
-from file_handler import Samples
+from file_handler import Samples, clear_one_sample, clear_all_temp_samples
 
-
-temp_files = glob.glob("temp-samples/*")
-for f in temp_files:
-    os.remove(f)
-
+clear_all_temp_samples()
 tkinter.Tk().withdraw()
 
 pg.init()
@@ -84,15 +78,60 @@ while is_running:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 is_running = False
+
             if event.type == pg.MOUSEBUTTONDOWN and event.button == 1:
                 if record_button.x < pg.mouse.get_pos()[0] < (record_button.x + 70):
                     if record_button.y < pg.mouse.get_pos()[1] < (record_button.y + 30):
                         recording = False
 
+                if 900 < pg.mouse.get_pos()[0] < 970:
+                    if 550 < pg.mouse.get_pos()[1] < 580:
+                        start_button_press = True
+
+            if event.type == pg.MOUSEBUTTONUP and event.button == 1:
+                if start_button_press:
+                    if not audio_start:
+                        audio_start = True
+                        step = 1
+                        light_x_pos = 65
+                    else:
+                        audio_start = False
+                        step = 1
+                        light_step = 1
+                        light_x_pos = -10
+                        pg.mixer.stop()
+
+                    start_button_press = False
+
+
+
         if audio_start:
-            play()
+            if clock.step():
+                if light_step > 16:
+                    light_step = 1
+                    light_x_pos = 65
+                play(sample_dict=samples, step_num=step)
+                step += 1
+                light_step += 1
+                light_x_pos += 50
+                if step > step_total:
+                    step = 1
+
 
         window_surface.fill("#555555")
+
+        if not start_button_press:
+            pg.draw.rect(surface=window_surface,
+                         color="white",
+                         rect=(900, 550, 70, 30),
+                         width=0)
+            window_surface.blit(start_text, (915, 553))
+        else:
+            pg.draw.rect(surface=window_surface,
+                         color="white",
+                         rect=(900, 552, 70, 30),
+                         width=0)
+            window_surface.blit(start_text, (915, 555))
 
         record_button = pg.draw.rect(surface=window_surface,
                                              color="white",
@@ -114,10 +153,14 @@ while is_running:
                     if 550 < pg.mouse.get_pos()[1] < 580:
                         start_button_press = True
 
+
                 # Save button press
                 if save_button.x < pg.mouse.get_pos()[0] < save_button.x + 30:
                     if save_button.y < pg.mouse.get_pos()[1] < save_button.y + 30:
                         file_load.save()
+
+
+
 
 
                 # Load button press
@@ -199,10 +242,10 @@ while is_running:
                                 except AttributeError:
                                     pass
 
-                                for f in temp_files:
-                                    if f == f"temp-samples\\track {track_view} row {row}.wav":
-
-                                        os.remove(f)
+                                # for f in temp_files:
+                                #     if f == f"temp-samples\\track {track_view} row {row}.wav":
+                                #         os.remove(f)
+                                clear_one_sample(path=f"temp-samples\\track {track_view} row {row}.wav")
                                 samples[track_view][0][row]["path"] = sample
                                 samples[track_view][0][row]["sample"] = pg.mixer.Sound(sample)
                                 samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
@@ -670,9 +713,7 @@ while is_running:
                                 except AttributeError:
                                     pass
 
-                                for f in temp_files:
-                                    if f == f"temp-samples\\track {track_view} row {row}.wav":
-                                        os.remove(f)
+                                clear_one_sample(path=f"temp-samples\\track {track_view} row {row}.wav")
                                 samples[track_view][0][row]["path"] = sample
                                 samples[track_view][0][row]["sample"] = pg.mixer.Sound(sample)
                                 samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
