@@ -5,8 +5,8 @@ pg.font.init()
 start_font = pg.font.SysFont('Arial', 20)
 start_text = start_font.render("Play", False, "#555555")
 
-record_font = pg.font.SysFont('Arial', 20)
-record_text = record_font.render("Record", False, "#555555")
+new_font = pg.font.SysFont('Arial', 20)
+new_text = new_font.render("Reset", False, "white")
 
 back_font = pg.font.SysFont('Arial', 20)
 back_text = back_font.render("Back", False, "#555555")

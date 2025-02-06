@@ -48,6 +48,7 @@ measure_number = 1
 measure_total = file_load.params["measures"]
 
 start_button_press = False
+new_button_press = False
 
 volume_adjust = True
 mouse_hold = False
@@ -57,7 +58,7 @@ original_pad = None
 original_x = None
 pad_hover_x = None
 
-recording = False
+
 
 track_view = 0
 
@@ -74,73 +75,8 @@ track_numbers[track_view] = track_font.render(f"{track_view + 1}", False, "#5555
 
 
 while is_running:
-    if recording:
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                is_running = False
 
-            if event.type == pg.MOUSEBUTTONDOWN and event.button == 1:
-                if record_button.x < pg.mouse.get_pos()[0] < (record_button.x + 70):
-                    if record_button.y < pg.mouse.get_pos()[1] < (record_button.y + 30):
-                        recording = False
-
-                if 900 < pg.mouse.get_pos()[0] < 970:
-                    if 550 < pg.mouse.get_pos()[1] < 580:
-                        start_button_press = True
-
-            if event.type == pg.MOUSEBUTTONUP and event.button == 1:
-                if start_button_press:
-                    if not audio_start:
-                        audio_start = True
-                        step = 1
-                        light_x_pos = 65
-                    else:
-                        audio_start = False
-                        step = 1
-                        light_step = 1
-                        light_x_pos = -10
-                        pg.mixer.stop()
-
-                    start_button_press = False
-
-
-
-        if audio_start:
-            if clock.step():
-                if light_step > 16:
-                    light_step = 1
-                    light_x_pos = 65
-                play(sample_dict=samples, step_num=step)
-                step += 1
-                light_step += 1
-                light_x_pos += 50
-                if step > step_total:
-                    step = 1
-
-
-        window_surface.fill("#555555")
-
-        if not start_button_press:
-            pg.draw.rect(surface=window_surface,
-                         color="white",
-                         rect=(900, 550, 70, 30),
-                         width=0)
-            window_surface.blit(start_text, (915, 553))
-        else:
-            pg.draw.rect(surface=window_surface,
-                         color="white",
-                         rect=(900, 552, 70, 30),
-                         width=0)
-            window_surface.blit(start_text, (915, 555))
-
-        record_button = pg.draw.rect(surface=window_surface,
-                                             color="white",
-                                             rect=(900, 35, 70, 30),
-                                             width=0)
-        window_surface.blit(back_text, (913, 38))
-        pg.display.flip()
-
-    elif samples[track_view][1]["mode"] == "drum":
+    if samples[track_view][1]["mode"] == "drum":
         mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -159,13 +95,10 @@ while is_running:
                     if save_button.y < pg.mouse.get_pos()[1] < save_button.y + 30:
                         file_load.save()
 
-
-
-
-
                 # Load button press
                 if load_button.x < pg.mouse.get_pos()[0] < load_button.x + 30:
                     if load_button.y < pg.mouse.get_pos()[1] < load_button.y + 30:
+                        track_numbers[track_view] = track_font.render(f"{track_view + 1}", False, "white")
                         file_load.load()
                         samples = file_load.samples
                         bpm = file_load.params["bpm"]
@@ -177,11 +110,16 @@ while is_running:
                         measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False, "white")
                         step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
                         mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
+                        track_view = 0
+                        track_numbers[track_view] = track_font.render(f"{track_view + 1}", False, "#555555")
 
-                # Record button press
-                if record_button.x < pg.mouse.get_pos()[0] < (record_button.x + 70):
-                    if record_button.y < pg.mouse.get_pos()[1] < (record_button.y + 30):
-                        recording = True
+
+
+                # New button press
+                if new_button.x < pg.mouse.get_pos()[0] < (new_button.x + 70):
+                    if new_button.y < pg.mouse.get_pos()[1] < (new_button.y + 30):
+
+                        new_button_press = True
 
                 # Volume or pitch
                 if volume_pitch_button.x < pg.mouse.get_pos()[0] < (volume_pitch_button.x + 70):
@@ -241,14 +179,14 @@ while is_running:
                                     samples[track_view][0][row]["sample"].fadeout(500)
                                 except AttributeError:
                                     pass
-
-                                # for f in temp_files:
-                                #     if f == f"temp-samples\\track {track_view} row {row}.wav":
-                                #         os.remove(f)
-                                clear_one_sample(path=f"temp-samples\\track {track_view} row {row}.wav")
                                 samples[track_view][0][row]["path"] = sample
                                 samples[track_view][0][row]["sample"] = pg.mixer.Sound(sample)
+                                samples[track_view][0][row]["pitch"] = 0
                                 samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
+                                clear_one_sample(path=f"temp-samples\\track {track_view} row {row}.wav")
+
+
+
 
                             except FileNotFoundError:
                                 pass
@@ -388,6 +326,33 @@ while is_running:
 
                     start_button_press = False
 
+                if new_button_press:
+                    file_load.new()
+                    samples = file_load.samples
+
+                    track_numbers[track_view] = track_font.render(f"{track_view + 1}", False, "white")
+                    track_view = 0
+                    samples[0][1]["window"] = True
+                    track_numbers[track_view] = track_font.render(f"{track_view + 1}", False, "#555555")
+
+                    bpm = file_load.params["bpm"]
+                    step_length = ((60 / bpm) / 4)
+                    clock.step_length = step_length
+                    audio_start = False
+
+                    light_step = 1
+                    light_x_pos = -10
+
+                    step_total = file_load.params["steps"]
+                    measure_number = 1
+                    measure_total = file_load.params["measures"]
+
+
+
+                    new_button_press = False
+
+
+
         if audio_start:
             if clock.step():
                 if light_step > 16:
@@ -437,12 +402,19 @@ while is_running:
         window_surface.blit(load_text, (950, 505))
 
 
-        # Record button
-        record_button = pg.draw.rect(surface=window_surface,
-                                     color="white",
-                                     rect=(900, 35, 70, 30),
-                                     width=0)
-        window_surface.blit(record_text, (902, 38))
+        # New button
+        if not new_button_press:
+            new_button = pg.draw.rect(surface=window_surface,
+                                         color="white",
+                                         rect=(900, 35, 70, 30),
+                                         width=1)
+            window_surface.blit(new_text, (908, 38))
+        else:
+            new_button = pg.draw.rect(surface=window_surface,
+                                      color="white",
+                                      rect=(900, 37, 70, 30),
+                                      width=1)
+            window_surface.blit(new_text, (908, 40))
 
         # Sample select button
         sample_select = [None, None, None, None, None, None, None, None]
@@ -630,12 +602,13 @@ while is_running:
                         measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False, "white")
                         step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
                         mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
+                        track_view = 0
 
 
-                # Record button press
-                if record_button.x < pg.mouse.get_pos()[0] < (record_button.x + 70):
-                    if record_button.y < pg.mouse.get_pos()[1] < (record_button.y + 30):
-                        recording = True
+                # New button press
+                if new_button.x < pg.mouse.get_pos()[0] < (new_button.x + 70):
+                    if new_button.y < pg.mouse.get_pos()[1] < (new_button.y + 30):
+                        new_button_press = True
 
                 # Volume or pitch
                 if volume_pitch_button.x < pg.mouse.get_pos()[0] < (volume_pitch_button.x + 70):
@@ -713,10 +686,11 @@ while is_running:
                                 except AttributeError:
                                     pass
 
-                                clear_one_sample(path=f"temp-samples\\track {track_view} row {row}.wav")
                                 samples[track_view][0][row]["path"] = sample
                                 samples[track_view][0][row]["sample"] = pg.mixer.Sound(sample)
+                                samples[track_view][0][row]["pitch"] = 0
                                 samples[track_view][0][row]["sample"].set_volume(samples[track_view][0][row]["volume"])
+                                clear_one_sample(path=f"temp-samples\\track {track_view} row {row}.wav")
 
                             except FileNotFoundError:
                                 pass
@@ -879,18 +853,45 @@ while is_running:
                     start_button_press = False
                 if mouse_hold:
                     mouse_hold = False
+                if new_button_press:
+                    file_load.new()
+                    samples = file_load.samples
+
+                    track_numbers[track_view] = track_font.render(f"{track_view + 1}", False, "white")
+                    track_view = 0
+                    samples[0][1]["window"] = True
+                    track_numbers[track_view] = track_font.render(f"{track_view + 1}", False, "#555555")
+
+                    bpm = file_load.params["bpm"]
+                    step_length = ((60 / bpm) / 4)
+                    clock.step_length = step_length
+                    audio_start = False
+
+                    light_step = 1
+                    light_x_pos = -10
+
+                    step_total = file_load.params["steps"]
+                    measure_number = 1
+                    measure_total = file_load.params["measures"]
+
+                    bpm_text = bpm_font.render(f"{bpm} bpm", False, "white")
+                    measure_text = measure_font.render(f"Measure: {measure_number}/{measure_total}", False, "white")
+                    step_text = measure_font.render(f"Step Count: {step_total}", False, "white")
+                    mode_text = mode_font.render(f"Mode: {samples[track_view][1]['mode'].title()}", False, "white")
+
+                    new_button_press = False
 
         if audio_start:
-            if clock.step():
-                if light_step > 16:
-                    light_step = 1
-                    light_x_pos = 65
-                play(sample_dict=samples, step_num=step)
-                step += 1
-                light_step += 1
-                light_x_pos += 50
-                if step > step_total:
-                    step = 1
+                if clock.step():
+                    if light_step > 16:
+                        light_step = 1
+                        light_x_pos = 65
+                    play(sample_dict=samples, step_num=step)
+                    step += 1
+                    light_step += 1
+                    light_x_pos += 50
+                    if step > step_total:
+                        step = 1
 
         # Note hold
         if mouse_hold:
@@ -956,12 +957,19 @@ while is_running:
                                    width=0)
         window_surface.blit(load_text, (950, 505))
 
-        # Record button
-        record_button = pg.draw.rect(surface=window_surface,
-                                     color="white",
-                                     rect=(900, 35, 70, 30),
-                                     width=0)
-        window_surface.blit(record_text, (902, 38))
+        # New button
+        if not new_button_press:
+            new_button = pg.draw.rect(surface=window_surface,
+                                      color="white",
+                                      rect=(900, 35, 70, 30),
+                                      width=1)
+            window_surface.blit(new_text, (908, 38))
+        else:
+            new_button = pg.draw.rect(surface=window_surface,
+                                      color="white",
+                                      rect=(900, 37, 70, 30),
+                                      width=1)
+            window_surface.blit(new_text, (908, 40))
 
         # Sample select button
         sample_select = [None, None, None, None, None, None, None, None]

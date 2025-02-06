@@ -11,8 +11,8 @@ import re
 class Samples:
     def __init__(self):
         self.samples = {}
-
         self.params = {}
+
     def new(self):
         self.params["bpm"] = 90
         self.params["steps"] = 16
@@ -28,11 +28,7 @@ class Samples:
 
 
     def save(self):
-        save_dict = self.samples
-        # for x in range(8):
-        #     for sound in save_dict[x][0]:
-        #         sound["sample"] = None
-        string = {0: save_dict, 1: self.params}
+        string = {0: self.samples, 1: self.params}
 
         string = str(string)
         try:
@@ -95,6 +91,12 @@ class Samples:
                         for x in range(self.samples[track][0][sample]["pitch"] * -1):
                             self.samples[track][0][sample]["sample"] = pitch_shift.shift_down(track=track, sample=sample,
                                                                                          samples=self.samples)
+            for x in range(8):
+                self.samples[x][1]["window"] = False
+            self.samples[0][1]["window"] = True
+
+
+
 
 
 
@@ -112,6 +114,7 @@ def clear_one_sample(path):
     temp_files = glob.glob("temp-samples/*")
     for f in temp_files:
         if f == path:
+            print("yes")
             os.remove(f)
         os.remove(f)
 #
