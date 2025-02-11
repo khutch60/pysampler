@@ -14,6 +14,7 @@ class Samples:
         self.params = {}
 
     def new(self):
+        clear_all_temp_samples()
         self.params["bpm"] = 90
         self.params["steps"] = 16
         self.params["measures"] = 1
