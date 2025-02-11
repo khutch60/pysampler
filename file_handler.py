@@ -50,13 +50,6 @@ class Samples:
         if file is not None:
             content = file.read()
             sound_object_loc = [i for i, letter in enumerate(content) if letter == "<"]
-            # for char in content:
-            #     try:
-            #         index = content.index("<", start)
-            #         sound_object_loc.append(index)
-            #         start = index + 1
-            #     except ValueError:
-            #         break
 
             string_list = []
             for loc in sound_object_loc:
@@ -97,14 +90,6 @@ class Samples:
 
 
 
-
-
-
-
-
-
-
-
 def clear_all_temp_samples():
     temp_files = glob.glob("temp-samples/*")
     for f in temp_files:
@@ -114,21 +99,5 @@ def clear_one_sample(path):
     temp_files = glob.glob("temp-samples/*")
     for f in temp_files:
         if f == path:
-            print("yes")
             os.remove(f)
         os.remove(f)
-#
-# def save(samples, params):
-#     # clear_all_temp_samples()
-#     for x in range(8):
-#         for sound in samples[x][0]:
-#             sound["sample"] = None
-#     string = {0: samples, 1: params}
-#     string = str(string)
-#     try:
-#         file = asksaveasfilename(filetypes=[("txt file", ".txt")], defaultextension="txt")
-#         file_save = open(file, 'w')
-#         file_save.write(string)
-#         file_save.close()
-#     except FileNotFoundError:
-#         pass

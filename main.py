@@ -149,9 +149,9 @@ while is_running:
                                     samples[track_view][0][row]["steps"][pad][1] = False
                                     samples[track_view][0][row]["steps"][pad][2] = 0
                                     for x in range(step_total - pad):
-                                        if samples[track_view][0][row]["steps"][check_start + 1][1]:
-                                            samples[track_view][0][row]["steps"][check_start + 1][1] = False
-                                            samples[track_view][0][row]["steps"][check_start + 1][2] = 0
+                                        if samples[track_view][0][row]["steps"][check_start][1]:
+                                            samples[track_view][0][row]["steps"][check_start][1] = False
+                                            samples[track_view][0][row]["steps"][check_start][2] = 0
                                             check_start += 1
                                 elif samples[track_view][0][row]["steps"][pad][1]:
                                     check_start = pad
@@ -645,8 +645,11 @@ while is_running:
                                         samples[track_view][0][row]["steps"][x][0] = False
                                         samples[track_view][0][row]["steps"][x][1] = False
                                         samples[track_view][0][row]["steps"][x][2] = 0
-                                        if samples[track_view][0][row]["steps"][x + 1][0]:
-                                            break
+                                        try:
+                                            if samples[track_view][0][row]["steps"][x + 1][0]:
+                                                break
+                                        except IndexError:
+                                            pass
                                     mouse_hold = False
                                 elif samples[track_view][0][row]["steps"][pad][1]:
                                     check_start = pad
@@ -898,8 +901,11 @@ while is_running:
             if pg.mouse.get_pos()[0] > pad_hover_x:
 
                 samples[track_view][0][row_click]["steps"][original_pad][2] = pad_hover
-                if samples[track_view][0][row_click]["steps"][pad_hover + 1][0]:
-                    mouse_hold = False
+                try:
+                    if samples[track_view][0][row_click]["steps"][pad_hover + 1][0]:
+                        mouse_hold = False
+                except IndexError:
+                    pass
 
                 if pad_hover_x == 850:
                     pass
