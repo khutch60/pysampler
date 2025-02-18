@@ -14,6 +14,9 @@ class Samples:
         self.params = {}
 
     def new(self):
+        if not os.path.exists("temp-samples"):
+            os.mkdir("temp-samples")
+        clear_all_temp_samples()
         self.params["bpm"] = 90
         self.params["steps"] = 16
         self.params["measures"] = 1
